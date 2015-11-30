@@ -4,8 +4,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
 import javax.swing.*;
 
 public class UI {
@@ -20,13 +18,6 @@ public class UI {
 		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		frame.add(pane);
-		JButton add = new JButton("Add");
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
-		c.gridx = 8;
-		c.gridy = 0;
-		pane.add(add, c);
 		
 		JLabel labelProduct = new JLabel("Product");
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -49,7 +40,7 @@ public class UI {
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.weightx = 0.5;
 		c.weighty = 0.5;
-		c.gridx = 2;
+		c.gridx = 1;
 		c.gridy = 1;
 		pane.add(labelToPay, c);
 		
@@ -77,18 +68,26 @@ public class UI {
 		c.weighty = 0.5;
 		c.gridx = 6;
 		c.gridy = 0;
-		pane.add(quantity, c);
+		pane.add(quantity, c);	
 		
+		JButton add = new JButton("Add");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.weighty = 0.5;
+		c.gridx = 5;
+		c.gridy = 1;
+		pane.add(add, c);
 		
 		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 		frame.setVisible(true);
-		
-		
+				
 		add.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//controller.addProductToSale(code, quantity, price);
+				controller.addProductToSale(productCode.getText(), quantity.getText(), toPay.getText());
 			}
 		});
 
