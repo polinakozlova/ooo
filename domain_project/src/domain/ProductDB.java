@@ -16,7 +16,7 @@ public class ProductDB {
 		this.properties = new Properties();
 		this.url = "jdbc:postgresql://gegevensbanken.khleuven.be:51516/2TX32";
 		properties.setProperty("user", "r0459898");
-		properties.setProperty("password", "");
+		properties.setProperty("password", "1234Porno1234");
 		properties.setProperty("ssl", "true");
 		properties.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
 

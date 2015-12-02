@@ -13,7 +13,6 @@ public class UI {
 		
 	}
 	
-	
 	public void makeUI(Controller controller){
 		JFrame frame = new JFrame("Shop");
 		JPanel pane = new JPanel(new GridBagLayout());
@@ -84,12 +83,44 @@ public class UI {
 		frame.setResizable(false);
 		frame.setVisible(true);
 				
+		
+		
+		
+		JFrame frameCustomer = new JFrame("To pay");
+		JPanel paneCust = new JPanel(new GridBagLayout());
+		GridBagConstraints cc = new GridBagConstraints();
+		frameCustomer.add(paneCust);
+		
+		JLabel label = new JLabel("To pay");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.weighty = 0.5;
+		c.gridx = 1;
+		c.gridy = 1;
+		paneCust.add(label, cc);
+		
+		JTextField price = new JTextField(5);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.weighty = 0.5;
+		c.gridx = 3;
+		c.gridy = 1;
+		toPay.setEnabled(false);
+		paneCust.add(price, cc);
+		
+		frameCustomer.pack();
+		frameCustomer.setLocationRelativeTo(null);
+		frameCustomer.setResizable(false);
+		frameCustomer.setVisible(true);
+		
 		add.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				controller.addProductToSale(productCode.getText(), quantity.getText());
 				recalculatePrice(toPay, controller);
+				recalculatePrice(price, controller);
+				
 			}
 		});
 
