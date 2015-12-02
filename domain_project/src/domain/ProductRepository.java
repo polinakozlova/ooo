@@ -40,11 +40,9 @@ public class ProductRepository {
 		if(product == null){
 			throw new IllegalArgumentException("No product given");
 		}
-		if(products.contains(product)){
-			throw new IllegalArgumentException("Product already exists");
-		}
 		products.add(product);
 	}
+	
 	
 	public void delete(String productId){
 		if(productId == null){

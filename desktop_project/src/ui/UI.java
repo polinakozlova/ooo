@@ -13,6 +13,7 @@ public class UI {
 		
 	}
 	
+	
 	public void makeUI(Controller controller){
 		JFrame frame = new JFrame("Shop");
 		JPanel pane = new JPanel(new GridBagLayout());
@@ -87,10 +88,15 @@ public class UI {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.addProductToSale(productCode.getText(), quantity.getText(), toPay.getText());
+				controller.addProductToSale(productCode.getText(), quantity.getText());
+				recalculatePrice(toPay, controller);
 			}
 		});
 
+	}
+	
+	private void recalculatePrice(JTextField toPay, Controller controller){
+		toPay.setText(controller.getTotalPrice());
 	}
 	
 	
