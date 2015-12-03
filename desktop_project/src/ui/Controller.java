@@ -41,4 +41,12 @@ public class Controller {
 		}
 		return String.valueOf(price);
 	}
+	
+	public double getProductPrice(String id) {
+		return productRepo.getProductById(id).getPrice();
+	}
+	
+	public String getProductDescription(String id) {
+		return productRepo.getProductById(id).getDescription();
+	}
 }
