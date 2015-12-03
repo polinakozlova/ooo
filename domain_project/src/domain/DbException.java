@@ -1,6 +1,5 @@
 package domain;
 
-
 public class DbException extends RuntimeException{
 
 public DbException(){

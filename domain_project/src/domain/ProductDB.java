@@ -19,7 +19,6 @@ public class ProductDB {
 		properties.setProperty("password", System.getenv("OOOPASS"));
 		properties.setProperty("ssl", "true");
 		properties.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
-
 	}
 
 	public ProductRepository getRepo() {

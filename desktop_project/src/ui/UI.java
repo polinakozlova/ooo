@@ -81,10 +81,7 @@ public class UI {
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
-		frame.setVisible(true);
-				
-		
-		
+		frame.setVisible(true);		
 		
 		JFrame frameCustomer = new JFrame("To pay");
 		JPanel paneCust = new JPanel(new GridBagLayout());
