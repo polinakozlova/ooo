@@ -1,5 +1,7 @@
 package domain;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,7 +23,7 @@ public class PersonDB {
 
 	}
 	
-	public PersonRepository getRepo(){
+	public PersonRepository getRepo() throws NoSuchAlgorithmException, UnsupportedEncodingException{
 		PersonRepository pr = new PersonRepository();
 		try{
 			Connection connection;
@@ -38,7 +40,8 @@ public class PersonDB {
 					String password = result.getString("password");
 					String firstName = result.getString("firstName");
 					String lastName = result.getString("lastName");
-					Person person = new Person(userId, password, firstName, lastName);
+					String salt = result.getString("salt");
+					Person person = new Person(userId, password, firstName, lastName, salt);
 					pr.add(person);
 				}
 				connection.close();

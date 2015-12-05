@@ -1,6 +1,8 @@
 package ui;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -32,9 +34,11 @@ public class Controller extends HttpServlet {
        
     /**
      * @throws SQLException 
+     * @throws UnsupportedEncodingException 
+     * @throws NoSuchAlgorithmException 
      * @see HttpServlet#HttpServlet()
      */
-    public Controller() throws SQLException {
+    public Controller() throws SQLException, NoSuchAlgorithmException, UnsupportedEncodingException {
         super();
         productDB = new ProductDB();
         productRepository = productDB.getRepo();
