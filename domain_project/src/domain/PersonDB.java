@@ -59,13 +59,14 @@ public class PersonDB {
 		if(person == null){
 			throw new DbException("Nothing to add.");
 		}
-		String sql = "INSERT INTO r0459898.\"Person\" (\"firstName\", \"userId\", \"lastName\", password)"
+		String sql = "INSERT INTO r0459898.\"Person\" (\"firstName\", \"userId\", \"lastName\", password, \"salt\")"
 				+ "VALUES ('"
 				+ person.getFirstName() + "', '" + person.getUserId() + "', '"
-				+ person.getLastName() + "', '" + person.getPassword() + "' )";
+				+ person.getLastName() + "', '" + person.getPassword() + "' , '" + person.getSalt() + "')";
 		try {
  			executeSQL(sql);
 		} catch (SQLException e) {
+			  e.printStackTrace();
 		}
 	}
 	

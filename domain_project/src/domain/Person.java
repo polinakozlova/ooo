@@ -102,7 +102,7 @@ public class Person {
 		 this.password = hashPassword(password, getSalt().getBytes(StandardCharsets.UTF_8));
 	}
 	
-	private String getSalt(){
+	public String getSalt(){
 		return this.salt;
 	}
 	
