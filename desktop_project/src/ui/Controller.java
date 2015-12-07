@@ -2,20 +2,21 @@ package ui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import domain.Product;
 import domain.ProductDB;
 import domain.ProductRepository;
 
 /**
- * @author Yannick Crabbé, Polina Kozlova
+ * @author Yannick Crabbï¿½, Polina Kozlova
  */
 public class Controller {
 
 	ProductDB productDB;
 	ProductRepository productRepo;
 
-	ArrayList<Product> producten;
+	HashMap<Product,Integer> producten;
 
 	public Controller() {
 		try {
@@ -23,7 +24,7 @@ public class Controller {
 		} catch (SQLException e) {
 		}
 		productRepo = productDB.getRepo();
-		producten = new ArrayList<>();
+		producten = new HashMap<>();
 	}
 
 	public void addProductToSale(String code, String quantity) {
@@ -32,14 +33,12 @@ public class Controller {
 		if (product == null) {
 			// error message
 		}
-		for (int i = 0; i < quantityInt; i++) {
-			producten.add(product);
-		}
+		this.addProduct(product, quantityInt);
 	}
 
 	public String getTotalPrice() {
 		double price = 0;
-		for (Product pr : producten) {
+		for (Product pr : producten.keySet()) {
 			price += pr.getPrice();
 		}
 		return String.valueOf(price);
@@ -54,10 +53,14 @@ public class Controller {
 	}
 
 	public String getIDByDescription(String description) {
-		for (Product pr : producten) {
+		for (Product pr : producten.keySet()) {
 			if (pr.getDescription().equals(description))
 				return pr.getId();
 		}
 		return null;
+	}
+	
+	public void addProduct(Product product, int quantity) {
+		this.producten.put(product, quantity);
 	}
 }

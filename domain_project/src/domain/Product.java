@@ -43,6 +43,8 @@ public class Product {
 		this.price = price;
 	}
 	
-	//TEST
+	public int hashCode() {
+	     return this.id.hashCode();
+	 }
 
 }

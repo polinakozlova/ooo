@@ -10,7 +10,7 @@ import javax.swing.event.TableModelListener;
 //import javax.swing.table.DefaultTableModel;
 
 /**
- * @author Yannick Crabbé
+ * @author Yannick Crabbï¿½
  */
 
 public class UI {
