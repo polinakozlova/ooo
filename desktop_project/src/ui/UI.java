@@ -152,6 +152,7 @@ public class UI {
 					JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
+				else {
 				controller.addProductToSale(controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
 						tableData[e.getFirstRow()][1].toString());
 				tableData[e.getFirstRow()][3] = Integer.parseInt(tableData[e.getFirstRow()][1].toString())
@@ -161,6 +162,7 @@ public class UI {
 				updateOverview(tableData, controller.getProductDescription(productCode.getText()),
 						Integer.parseInt(quantity.getText()), controller.getProductPrice(productCode.getText()));
 				productTable.repaint();
+				}
 			}
 		});
 	}
