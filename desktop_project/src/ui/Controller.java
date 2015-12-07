@@ -7,6 +7,9 @@ import domain.Product;
 import domain.ProductDB;
 import domain.ProductRepository;
 
+/**
+ * @author Yannick Crabbé, Polina Kozlova
+ */
 public class Controller {
 	
 	ProductDB productDB;

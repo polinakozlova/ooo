@@ -12,6 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+/**
+ * @author Polina Kozlova
+ */
 public class RegisterTest {
 	private WebDriver driver;
 	

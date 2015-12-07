@@ -1,5 +1,8 @@
 package domain;
 
+/**
+ * @author Polina Kozlova
+ */
 public class Product {
 
 	private String id;

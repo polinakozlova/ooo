@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Polina Kozlova
+ */
 public class PersonRepository {
 	private Map<String, Person> persons = new HashMap<String, Person>();
 	

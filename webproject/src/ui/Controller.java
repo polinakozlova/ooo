@@ -24,6 +24,9 @@ import domain.ProductRepository;
  * Servlet implementation class Controller
  */
 @WebServlet("/Controller")
+/**
+ * @author Polina Kozlova
+ */
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ProductDB productDB;

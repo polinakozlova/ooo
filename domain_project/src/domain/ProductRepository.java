@@ -2,7 +2,9 @@ package domain;
 
 import java.util.ArrayList;
 
-
+/**
+ * @author Polina Kozlova
+ */
 public class ProductRepository {
 	private ArrayList<Product> products = new ArrayList<Product>();
 	

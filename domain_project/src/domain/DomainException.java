@@ -2,6 +2,9 @@ package domain;
 
 import java.util.ArrayList;
 
+/**
+ * @author Polina Kozlova
+ */
 public class DomainException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;

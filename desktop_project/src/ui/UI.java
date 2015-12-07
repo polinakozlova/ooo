@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+/**
+ * @author Yannick Crabbé
+ */
 public class UI {
 	private int i = 0;
 

@@ -9,6 +9,9 @@ import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author Polina Kozlova
+ */
 public class Person {
 	private String userId;
 	private String password;

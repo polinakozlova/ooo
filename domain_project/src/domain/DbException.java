@@ -1,5 +1,8 @@
 package domain;
 
+/**
+ * @author Polina Kozlova
+ */
 public class DbException extends RuntimeException{
 
 public DbException(){

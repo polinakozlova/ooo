@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+/**
+ * @author Polina Kozlova
+ */
 public class ProductDB {
 
 	String url;
