@@ -47,4 +47,10 @@ public class Product {
 	     return this.id.hashCode();
 	 }
 
+	public boolean equals(Object object) {
+		if(object instanceof Product) {
+			return ((Product)object).getId().equals(this.getId());
+		}
+		return false;
+	}
 }
