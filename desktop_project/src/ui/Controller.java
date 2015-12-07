@@ -11,13 +11,13 @@ import domain.ProductRepository;
  * @author Yannick Crabbé, Polina Kozlova
  */
 public class Controller {
-	
+
 	ProductDB productDB;
 	ProductRepository productRepo;
-	
+
 	ArrayList<Product> producten;
-	
-	public Controller(){
+
+	public Controller() {
 		try {
 			productDB = new ProductDB();
 		} catch (SQLException e) {
@@ -25,31 +25,39 @@ public class Controller {
 		productRepo = productDB.getRepo();
 		producten = new ArrayList<>();
 	}
-	
-	public void addProductToSale(String code, String quantity){
+
+	public void addProductToSale(String code, String quantity) {
 		int quantityInt = Integer.parseInt(quantity);
 		Product product = productDB.getProductById(code);
-		if(product == null){
-			//error message
+		if (product == null) {
+			// error message
 		}
-		for(int i = 0; i < quantityInt; i++){
+		for (int i = 0; i < quantityInt; i++) {
 			producten.add(product);
 		}
 	}
-	
-	public String getTotalPrice(){
+
+	public String getTotalPrice() {
 		double price = 0;
-		for(Product pr : producten){
+		for (Product pr : producten) {
 			price += pr.getPrice();
 		}
 		return String.valueOf(price);
 	}
-	
+
 	public double getProductPrice(String id) {
 		return productRepo.getProductById(id).getPrice();
 	}
-	
+
 	public String getProductDescription(String id) {
 		return productRepo.getProductById(id).getDescription();
+	}
+
+	public String getIDByDescription(String description) {
+		for (Product pr : producten) {
+			if (pr.getDescription().equals(description))
+				return pr.getId();
+		}
+		return null;
 	}
 }

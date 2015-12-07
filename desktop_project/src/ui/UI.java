@@ -5,12 +5,17 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+//import javax.swing.table.DefaultTableModel;
 
 /**
  * @author Yannick Crabbé
  */
+
 public class UI {
-	private int i = 0;
+	private int index = 0;
+	//DefaultTableModel model = new DefaultTableModel();
 
 	public UI() {
 
@@ -81,11 +86,11 @@ public class UI {
 		pane.add(add, c);
 
 		String[] columnNames = { "Description", "Quantity", "Unit price", "Total price" };
-		Object[][] tableData = new Object[10][4];
+		Object[][] tableData = new Object[420][4];
 		JTable productTable = new JTable(tableData, columnNames);
-		productTable.setEnabled(false);
+
 		JScrollPane tableContainer = new JScrollPane(productTable);
-		c.fill = GridBagConstraints.HORIZONTAL;
+		c.fill = GridBagConstraints.BOTH;
 		c.weightx = 0.5;
 		c.weighty = 0.5;
 		c.gridheight = 50;
@@ -136,6 +141,28 @@ public class UI {
 				productTable.repaint();
 			}
 		});
+
+		productTable.getModel().addTableModelListener(new TableModelListener() {
+			@Override
+			public void tableChanged(TableModelEvent e) {
+				if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) == 0) {
+					// delete row from table, remove from sales
+				}
+				if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) < 0) {
+					JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				}
+				controller.addProductToSale(controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
+						tableData[e.getFirstRow()][1].toString());
+				tableData[e.getFirstRow()][3] = Integer.parseInt(tableData[e.getFirstRow()][1].toString())
+						* Double.parseDouble(tableData[e.getFirstRow()][2].toString());
+				recalculatePrice(toPay, controller);
+				recalculatePrice(price, controller);
+				updateOverview(tableData, controller.getProductDescription(productCode.getText()),
+						Integer.parseInt(quantity.getText()), controller.getProductPrice(productCode.getText()));
+				productTable.repaint();
+			}
+		});
 	}
 
 	private void recalculatePrice(JTextField toPay, Controller controller) {
@@ -143,24 +170,10 @@ public class UI {
 	}
 
 	private void updateOverview(Object[][] tableData, String productDescription, int quantity, double productPrice) {
-		if (i == 0) {
-			tableData[i][0] = productDescription;
-			tableData[i][1] = quantity;
-			tableData[i][2] = productPrice;
-			tableData[i][3] = quantity * productPrice;
-			i++;
-		} else {
-			for (int j = 0; j < i; j++) {
-				if (tableData[j][0].equals(productDescription)) {
-					tableData[j][1] = (int) tableData[j][1] + quantity;
-					tableData[j][3] = (int) tableData[j][1] * productPrice;
-				} else {
-					tableData[i][0] = productDescription;
-					tableData[i][1] = quantity;
-					tableData[i][2] = productPrice;
-					tableData[i][3] = quantity * productPrice;
-				}
-			}
-		}
+		tableData[index][0] = productDescription;
+		tableData[index][1] = quantity;
+		tableData[index][2] = productPrice;
+		tableData[index][3] = quantity * productPrice;
+		index++;
 	}
 }
