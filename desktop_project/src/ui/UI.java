@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+
+import domain.DbException;
 //import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,10 +17,8 @@ import javax.swing.event.TableModelListener;
 
 public class UI {
 	private int index = 0;
-	//DefaultTableModel model = new DefaultTableModel();
-
+	
 	public UI() {
-
 	}
 
 	public void makeUI(Controller controller) {
@@ -133,12 +133,22 @@ public class UI {
 		add.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.addProductToSale(productCode.getText(), quantity.getText());
-				recalculatePrice(toPay, controller);
-				recalculatePrice(price, controller);
-				updateOverview(tableData, controller.getProductDescription(productCode.getText()),
-						Integer.parseInt(quantity.getText()), controller.getProductPrice(productCode.getText()));
-				productTable.repaint();
+				if (Integer.parseInt(quantity.getText()) <= 0)
+					JOptionPane.showMessageDialog(null, "Quantity should be above 0.", "Error",
+							JOptionPane.ERROR_MESSAGE);			
+				else {
+					try {
+					controller.addProductToSale(productCode.getText(), quantity.getText());
+					recalculatePrice(toPay, controller);
+					recalculatePrice(price, controller);
+					updateOverview(tableData, controller.getProductDescription(productCode.getText()),
+							Integer.parseInt(quantity.getText()), controller.getProductPrice(productCode.getText()));
+					productTable.repaint();
+					}
+					catch (DbException DbException){
+						JOptionPane.showMessageDialog(null, "Product with ID " + productCode.getText() + " doesn't exist.", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+				}
 			}
 		});
 
@@ -146,29 +156,28 @@ public class UI {
 			@Override
 			public void tableChanged(TableModelEvent e) {
 				if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) == 0) {
-					// delete row from table, remove from sales
+					controller.removeProductFromSale(controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()));
 				}
-				if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) < 0) {
+				else if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) < 0) {
 					JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher", "Error",
 							JOptionPane.ERROR_MESSAGE);
-				}
-				else {
-				controller.addProductToSale(controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
-						tableData[e.getFirstRow()][1].toString());
-				tableData[e.getFirstRow()][3] = Integer.parseInt(tableData[e.getFirstRow()][1].toString())
-						* Double.parseDouble(tableData[e.getFirstRow()][2].toString());
-				recalculatePrice(toPay, controller);
-				recalculatePrice(price, controller);
-				updateOverview(tableData, controller.getProductDescription(productCode.getText()),
-						Integer.parseInt(quantity.getText()), controller.getProductPrice(productCode.getText()));
-				productTable.repaint();
+				} else {
+					controller.addProductToSale(controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
+							tableData[e.getFirstRow()][1].toString());
+					tableData[e.getFirstRow()][3] = Integer.parseInt(tableData[e.getFirstRow()][1].toString())
+							* Double.parseDouble(tableData[e.getFirstRow()][2].toString());
+					recalculatePrice(toPay, controller);
+					recalculatePrice(price, controller);
+					updateOverview(tableData, controller.getProductDescription(productCode.getText()),
+							Integer.parseInt(quantity.getText()), controller.getProductPrice(productCode.getText()));
+					productTable.repaint();
 				}
 			}
 		});
 	}
 
-	private void recalculatePrice(JTextField toPay, Controller controller) {
-		toPay.setText(controller.getTotalPrice());
+	private void recalculatePrice(JTextField field, Controller controller) {
+		field.setText(controller.getTotalPrice());
 	}
 
 	private void updateOverview(Object[][] tableData, String productDescription, int quantity, double productPrice) {
