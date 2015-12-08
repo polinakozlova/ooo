@@ -10,6 +10,7 @@ import javax.swing.event.TableModelListener;
 
 import domain.DbException;
 //import javax.swing.table.DefaultTableModel;
+import domain.Product;
 
 /**
  * @author Yannick Crabb�
@@ -17,7 +18,7 @@ import domain.DbException;
 
 public class UI {
 	private int index = 0;
-	
+
 	public UI() {
 	}
 
@@ -135,18 +136,18 @@ public class UI {
 			public void actionPerformed(ActionEvent e) {
 				if (Integer.parseInt(quantity.getText()) <= 0)
 					JOptionPane.showMessageDialog(null, "Quantity should be above 0.", "Error",
-							JOptionPane.ERROR_MESSAGE);			
+							JOptionPane.ERROR_MESSAGE);
 				else {
 					try {
-					controller.addProductToSale(productCode.getText(), quantity.getText());
-					recalculatePrice(toPay, controller);
-					recalculatePrice(price, controller);
-					updateOverview(tableData, controller.getProductDescription(productCode.getText()),
-							Integer.parseInt(quantity.getText()), controller.getProductPrice(productCode.getText()));
-					productTable.repaint();
-					}
-					catch (DbException DbException){
-						JOptionPane.showMessageDialog(null, "Product with ID " + productCode.getText() + " doesn't exist.", "Error", JOptionPane.ERROR_MESSAGE);
+						controller.addProductToSale(productCode.getText(), quantity.getText());
+						recalculatePrice(toPay, controller);
+						recalculatePrice(price, controller);
+						updateOverview(tableData, controller);
+						productTable.repaint();
+					} catch (DbException DbException) {
+						JOptionPane.showMessageDialog(null,
+								"Product with ID " + productCode.getText() + " doesn't exist.", "Error",
+								JOptionPane.ERROR_MESSAGE);
 					}
 				}
 			}
@@ -156,22 +157,21 @@ public class UI {
 			@Override
 			public void tableChanged(TableModelEvent e) {
 				if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) == 0) {
-					controller.removeProductFromSale(controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()));
-				}
-				else if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) < 0) {
+					controller.removeProductFromSale(
+							controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()));
+				} else if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) < 0) {
 					JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				} else {
-					controller.addProductToSale(controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
-							tableData[e.getFirstRow()][1].toString());
-					tableData[e.getFirstRow()][3] = Integer.parseInt(tableData[e.getFirstRow()][1].toString())
-							* Double.parseDouble(tableData[e.getFirstRow()][2].toString());
-					recalculatePrice(toPay, controller);
-					recalculatePrice(price, controller);
-					updateOverview(tableData, controller.getProductDescription(productCode.getText()),
-							Integer.parseInt(quantity.getText()), controller.getProductPrice(productCode.getText()));
-					productTable.repaint();
+					controller.setProductSaleQuantity(
+							controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
+							Integer.parseInt(tableData[e.getFirstRow()][1].toString()));
+
 				}
+				recalculatePrice(toPay, controller);
+				recalculatePrice(price, controller);
+				updateOverview(tableData, controller);
+				productTable.repaint();
 			}
 		});
 	}
@@ -180,11 +180,21 @@ public class UI {
 		field.setText(controller.getTotalPrice());
 	}
 
-	private void updateOverview(Object[][] tableData, String productDescription, int quantity, double productPrice) {
-		tableData[index][0] = productDescription;
-		tableData[index][1] = quantity;
-		tableData[index][2] = productPrice;
-		tableData[index][3] = quantity * productPrice;
-		index++;
+	private void updateOverview(Object[][] tableData, Controller controller) {
+		int i = 0;
+		for (Product pr : controller.getProducts()) {
+			tableData[i][0] = pr.getDescription();
+			tableData[i][1] = controller.getProductQuantity(pr);
+			tableData[i][2] = pr.getPrice();
+			tableData[i][3] = pr.getPrice() * controller.getProductQuantity(pr);
+			i++;
+		}
+		while (i < 420) {
+			tableData[i][0] = "";
+			tableData[i][1] = "";
+			tableData[i][2] = "";
+			tableData[i][3] = "";
+			i++;
+		}
 	}
 }

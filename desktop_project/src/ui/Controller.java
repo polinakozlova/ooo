@@ -2,6 +2,7 @@ package ui;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Set;
 
 import javax.swing.JOptionPane;
 
@@ -11,9 +12,9 @@ import domain.*;
  * @author Yannick Crabb�, Polina Kozlova
  */
 public class Controller {
-	ProductDB productDB;
-	ProductRepository productRepo;
-	HashMap<Product, Integer> currentSale;
+	private ProductDB productDB;
+	private ProductRepository productRepo;
+	private HashMap<Product, Integer> currentSale;
 
 	public Controller() {
 		try {
@@ -31,9 +32,15 @@ public class Controller {
 		else
 			this.currentSale.put(product, (this.currentSale.get(product) + Integer.parseInt(quantity)));
 	}
-	
+
+	public void setProductSaleQuantity(String code, int quantity) {
+		Product product = productDB.getProductById(code);
+		this.currentSale.put(product, quantity);
+	}
+
 	public void removeProductFromSale(String code) {
-		this.currentSale.remove(code);
+		Product product = productDB.getProductById(code);
+		this.currentSale.remove(product);
 	}
 
 	public String getTotalPrice() {
@@ -58,5 +65,13 @@ public class Controller {
 				return pr.getId();
 		}
 		return null;
+	}
+
+	public Set<Product> getProducts() {
+		return this.currentSale.keySet();
+	}
+
+	public int getProductQuantity(Product product) {
+		return this.currentSale.get(product);
 	}
 }
