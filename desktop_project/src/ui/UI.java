@@ -2,6 +2,7 @@ package ui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -14,7 +15,7 @@ import domain.Product;
  * @author Yannick Crabb�
  */
 public class UI {
-	
+
 	public UI() {
 	}
 
@@ -23,77 +24,90 @@ public class UI {
 		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		frameCashier.add(pane);
+		
+		String[] columnNames = { "Description", "Quantity", "Unit price", "Total price" };
+		Object[][] tableData = new Object[420][4];
+		JTable productTable = new JTable(tableData, columnNames);
+		JScrollPane tableContainer = new JScrollPane(productTable);
+		//c.fill = GridBagConstraints.BOTH;
+		c.gridx = 0;
+		c.gridy = 0;
+		pane.add(tableContainer, c);
 
 		JLabel labelProduct = new JLabel("Product");
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
+		c.insets = new Insets(0, 5, 0, 0);
 		c.gridx = 1;
-		c.gridy = 4;
+		c.gridy = 0;
 		pane.add(labelProduct, c);
 
 		JTextField productCode = new JTextField(10);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
-		c.gridx = 3;
-		c.gridy = 4;
+		c.insets = new Insets(0, 5, 0, 0);
+		c.gridx = 2;
+		c.gridy = 0;
 		pane.add(productCode, c);
-
-		JLabel labelToPay = new JLabel("To pay");
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
-		c.gridx = 1;
-		c.gridy = 5;
-		pane.add(labelToPay, c);
-
-		JTextField toPay = new JTextField(5);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
-		c.gridx = 3;
-		c.gridy = 5;
-		toPay.setEnabled(false);
-		pane.add(toPay, c);
 
 		JLabel labelQuantity = new JLabel("Quantity");
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
-		c.gridx = 5;
-		c.gridy = 4;
+		c.insets = new Insets(0, 5, 0, 0);
+		c.gridx = 3;
+		c.gridy = 0;
 		pane.add(labelQuantity, c);
 
 		JTextField quantity = new JTextField(2);
 		quantity.setText("1");
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
-		c.gridx = 6;
-		c.gridy = 4;
+		c.insets = new Insets(0, 5, 0, 0);
+		c.gridx = 4;
+		c.gridy = 0;
 		pane.add(quantity, c);
 
 		JButton add = new JButton("Add");
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
+		c.insets = new Insets(0, 5, 0, 5);
 		c.gridx = 5;
-		c.gridy = 5;
+		c.gridy = 0;
 		pane.add(add, c);
 
-		String[] columnNames = { "Description", "Quantity", "Unit price", "Total price" };
-		Object[][] tableData = new Object[420][4];
-		JTable productTable = new JTable(tableData, columnNames);
+		JLabel labelToPay = new JLabel("To pay");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 1;
+		pane.add(labelToPay, c);
 
-		JScrollPane tableContainer = new JScrollPane(productTable);
-		c.fill = GridBagConstraints.BOTH;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
-		c.gridheight = 50;
-		c.gridx = 0;
-		c.gridy = 4;
-		pane.add(tableContainer, c);
+		JTextField toPay = new JTextField(5);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 1;
+		toPay.setEnabled(false);
+		pane.add(toPay, c);
+		
+		JLabel labelPromoCode = new JLabel("Promo code");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 2;
+		pane.add(labelPromoCode, c);
+
+		JTextField promoCode = new JTextField(5);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 2;
+		toPay.setEnabled(false);
+		pane.add(promoCode, c);
+		
+		JButton confirmPromo = new JButton("Confirm");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(0, 5, 0, 5);
+		c.gridx = 3;
+		c.gridy = 2;
+		pane.add(confirmPromo, c);
+		
+		JButton confirmSale = new JButton("Confirm sale");
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 3;
+		c.gridwidth = 5;
+		pane.add(confirmSale, c);
 
 		frameCashier.pack();
 		frameCashier.setLocationRelativeTo(null);
@@ -106,19 +120,16 @@ public class UI {
 		frameCustomer.add(paneCust);
 
 		JLabel label = new JLabel("To pay");
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
-		c.gridx = 1;
-		c.gridy = 5;
+		cc.fill = GridBagConstraints.HORIZONTAL;
+		cc.gridx = 0;
+		cc.gridy = 0;
 		paneCust.add(label, cc);
 
 		JTextField price = new JTextField(5);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.weighty = 0.5;
-		c.gridx = 3;
-		c.gridy = 4;
+		cc.fill = GridBagConstraints.HORIZONTAL;
+		cc.insets = new Insets(0, 5, 0, 0);
+		cc.gridx = 1;
+		cc.gridy = 0;
 		toPay.setEnabled(false);
 		paneCust.add(price, cc);
 
@@ -148,26 +159,49 @@ public class UI {
 				}
 			}
 		});
+		
+		confirmPromo.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e1) {
+				if (controller.checkValidPromoCode(promoCode.getText())) {
+					//recalculate price
+				}	
+			}	
+		});
+		
+		confirmSale.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e2) {
+				String optionClicked = JOptionPane.showInputDialog(pane, "Amount paid by customer: ");
+				if (optionClicked.equals("Ok")) {
+					System.exit(0);
+				}
+			}
+		});
 
 		productTable.getModel().addTableModelListener(new TableModelListener() {
 			@Override
 			public void tableChanged(TableModelEvent e) {
-				if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) == 0) {
-					controller.removeProductFromSale(
-							controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()));
-				} else if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) < 0) {
-					JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher", "Error",
+				try {
+					if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) == 0) {
+						controller.removeProductFromSale(
+								controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()));
+					} else if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) < 0) {
+						JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher.", "Invalid input",
+								JOptionPane.ERROR_MESSAGE);
+					} else {
+						controller.setProductSaleQuantity(
+								controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
+								Integer.parseInt(tableData[e.getFirstRow()][1].toString()));
+					}
+					recalculatePrice(toPay, controller);
+					recalculatePrice(price, controller);
+					updateOverview(tableData, controller);
+					productTable.repaint();
+				} catch (NumberFormatException NumberFormatException) {
+					JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher.", "Invalid input",
 							JOptionPane.ERROR_MESSAGE);
-				} else {
-					controller.setProductSaleQuantity(
-							controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
-							Integer.parseInt(tableData[e.getFirstRow()][1].toString()));
-
 				}
-				recalculatePrice(toPay, controller);
-				recalculatePrice(price, controller);
-				updateOverview(tableData, controller);
-				productTable.repaint();
 			}
 		});
 	}

@@ -4,8 +4,6 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Set;
 
-import javax.swing.JOptionPane;
-
 import domain.*;
 
 /**
@@ -73,5 +71,10 @@ public class Controller {
 
 	public int getProductQuantity(Product product) {
 		return this.currentSale.get(product);
+	}
+
+	public boolean checkValidPromoCode(String code) {
+		//TODO
+		return false;		
 	}
 }
