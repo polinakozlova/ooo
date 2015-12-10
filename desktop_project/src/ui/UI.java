@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+
+import controller.Controller;
 import domain.DbException;
 import domain.Product;
 
@@ -18,6 +20,8 @@ public class UI {
 
 	public UI() {
 	}
+	
+	
 
 	public void makeUI(Controller controller) {
 		JFrame frameCashier = new JFrame("Shop");
@@ -147,9 +151,9 @@ public class UI {
 				else {
 					try {
 						controller.addProductToSale(productCode.getText(), quantity.getText());
-						recalculatePrice(toPay, controller);
-						recalculatePrice(price, controller);
-						updateOverview(tableData, controller);
+						showNewPrice(toPay, controller);
+						showNewPrice(price, controller);
+						updateTable(tableData, controller);
 						productTable.repaint();
 					} catch (DbException DbException) {
 						JOptionPane.showMessageDialog(null,
@@ -164,6 +168,7 @@ public class UI {
 			@Override
 			public void actionPerformed(ActionEvent e1) {
 				if (controller.checkValidPromoCode(promoCode.getText())) {
+					controller.adjustPriceAfterPromo();
 					// recalculate price
 					// TODO
 				}
@@ -212,9 +217,9 @@ public class UI {
 								controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
 								Integer.parseInt(tableData[e.getFirstRow()][1].toString()));
 					}
-					recalculatePrice(toPay, controller);
-					recalculatePrice(price, controller);
-					updateOverview(tableData, controller);
+					showNewPrice(toPay, controller);
+					showNewPrice(price, controller);
+					updateTable(tableData, controller);
 					productTable.repaint();
 				} catch (NumberFormatException NumberFormatException) {
 					JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher.", "Invalid input",
@@ -224,11 +229,11 @@ public class UI {
 		});
 	}
 
-	private void recalculatePrice(JTextField field, Controller controller) {
-		field.setText(controller.getTotalPrice());
+	private void showNewPrice(JTextField field, Controller controller) {
+		field.setText(String.valueOf(controller.getTotalPrice()));
 	}
 
-	private void updateOverview(Object[][] tableData, Controller controller) {
+	private void updateTable(Object[][] tableData, Controller controller) {
 		int i = 0;
 		for (Product pr : controller.getProducts()) {
 			tableData[i][0] = pr.getDescription();

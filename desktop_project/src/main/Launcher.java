@@ -1,4 +1,7 @@
-package ui;
+package main;
+
+import controller.Controller;
+import ui.UI;
 
 /**
  * @author Yannick Crabbé
