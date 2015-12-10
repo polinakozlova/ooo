@@ -77,4 +77,8 @@ public class Controller {
 		//TODO
 		return false;		
 	}
+
+	public void emptyCurrentSale() {
+		this.currentSale.clear();
+	}
 }

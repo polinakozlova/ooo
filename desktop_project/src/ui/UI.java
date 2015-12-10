@@ -24,12 +24,12 @@ public class UI {
 		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		frameCashier.add(pane);
-		
+
 		String[] columnNames = { "Description", "Quantity", "Unit price", "Total price" };
 		Object[][] tableData = new Object[420][4];
 		JTable productTable = new JTable(tableData, columnNames);
 		JScrollPane tableContainer = new JScrollPane(productTable);
-		//c.fill = GridBagConstraints.BOTH;
+		// c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
 		pane.add(tableContainer, c);
@@ -81,7 +81,7 @@ public class UI {
 		c.gridy = 1;
 		toPay.setEnabled(false);
 		pane.add(toPay, c);
-		
+
 		JLabel labelPromoCode = new JLabel("Promo code");
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 1;
@@ -94,14 +94,14 @@ public class UI {
 		c.gridy = 2;
 		toPay.setEnabled(false);
 		pane.add(promoCode, c);
-		
+
 		JButton confirmPromo = new JButton("Confirm");
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = new Insets(0, 5, 0, 5);
 		c.gridx = 3;
 		c.gridy = 2;
 		pane.add(confirmPromo, c);
-		
+
 		JButton confirmSale = new JButton("Confirm sale");
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 1;
@@ -159,22 +159,40 @@ public class UI {
 				}
 			}
 		});
-		
+
 		confirmPromo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e1) {
 				if (controller.checkValidPromoCode(promoCode.getText())) {
-					//recalculate price
-				}	
-			}	
+					// recalculate price
+					// TODO
+				}
+			}
 		});
-		
+
 		confirmSale.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e2) {
-				String optionClicked = JOptionPane.showInputDialog(pane, "Amount paid by customer: ");
-				if (optionClicked.equals("Ok")) {
-					System.exit(0);
+				double amountPaid = Double.parseDouble(JOptionPane.showInputDialog(pane, "Amount paid by customer: "));
+				if (amountPaid <= Double.parseDouble(price.getText())) {
+					JOptionPane.showMessageDialog(null,
+							"The amount paid should be " + Double.parseDouble(price.getText()) + " or higher.",
+							"Invalid input", JOptionPane.ERROR_MESSAGE);
+				}
+				else {
+					//scherm leegmaken voor nieuwe sale
+					for (int i = 0; i < 420; i++) {
+						tableData[i][0] = "";
+						tableData[i][1] = "";
+						tableData[i][2] = "";
+						tableData[i][3] = "";
+					}
+					productTable.repaint();
+					controller.emptyCurrentSale();
+					price.setText("0.0");
+					toPay.setText("0.0");
+					quantity.setText("1");
+					productCode.setText("");
 				}
 			}
 		});
