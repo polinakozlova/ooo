@@ -51,7 +51,7 @@ Add product
         	<input type="text" id="description" name="description" required> </p>
         <p><label for="price">Price</label>
         	<input type="text" id="price" name="price" required></p>
-        <p><input type="submit" id="AddProduct" value="Add product"></p>
+        <p><input type="submit" id="addProduct" value="Add product"></p>
         
     </form>
 </main>

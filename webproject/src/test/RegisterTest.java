@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
@@ -21,7 +22,7 @@ public class RegisterTest {
 	@Before
 	public void setUp() {
 		driver=new FirefoxDriver();
-		driver.get("http://localhost:8080/week01Users/Controller?action=signUp");
+		driver.get("http://localhost:8080/webproject/Controller?action=signUp");
 	}
 	
 	@After
@@ -60,7 +61,7 @@ public class RegisterTest {
 		String title=driver.getTitle();
 		assertEquals("Home",title);
 		
-		driver.get("http://localhost:8080/week01Users/Controller?action=overview");
+		driver.get("http://localhost:8080/webproject/Controller?action=overview");
 		
 		ArrayList<WebElement> listItems=(ArrayList<WebElement>) driver.findElements(By.cssSelector("table tr"));
 		boolean found=false;
@@ -167,7 +168,7 @@ public class RegisterTest {
 		String emailRandom = generateRandomEmail("pieter.pieters@hotmail.com");
 		submitForm("Pieter", "Pieters", emailRandom, "1234");
 		
-		driver.get("http://localhost:8080/week01Users/Controller?action=signUp");
+		driver.get("http://localhost:8080/webproject/Controller?action=signUp");
 
 		submitForm("Pieter", "Pieters", emailRandom, "1234");
 		
