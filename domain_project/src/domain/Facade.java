@@ -65,4 +65,8 @@ public class Facade {
 	public double getProductPrice(Product product) {
 		return product.getPrice();
 	}	
+	
+	public Object[][] updateSaleTable(Object[][] tableData) {
+		return sale.updateSaleTable(tableData);
+	}
 }

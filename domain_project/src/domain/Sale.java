@@ -3,7 +3,6 @@ package domain;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Set;
-
 import observer.Observable;
 import observer.Observer;
 
@@ -78,6 +77,25 @@ public class Sale implements Observable {
 	public boolean checkValidPromoCode(String code) {
 		//TODO
 		return false;		
+	}
+	
+	public Object[][] updateSaleTable(Object[][] tableData) {
+		int i = 0;
+		for (Product pr : this.getCurrentSale()) {
+			tableData[i][0] = pr.getDescription();
+			tableData[i][1] = this.getProductQuantity(pr);
+			tableData[i][2] = pr.getPrice();
+			tableData[i][3] = pr.getPrice() * this.getProductQuantity(pr);
+			i++;
+		}
+		while (i < 420) {
+			tableData[i][0] = "";
+			tableData[i][1] = "";
+			tableData[i][2] = "";
+			tableData[i][3] = "";
+			i++;
+		}
+		return tableData;
 	}
 
 	public void registerObserver(Observer o) {

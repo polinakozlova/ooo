@@ -70,4 +70,8 @@ public class Controller {
 	public double getProductPrice(Product product) {
 		return facade.getProductPrice(product);
 	}
+	
+	public Object[][] updateSaleTable(Object[][] tableData) {
+		return facade.updateSaleTable(tableData);
+	}
 }
