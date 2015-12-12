@@ -67,7 +67,7 @@ public class Sale implements Observable {
 		return productRepo.getProductById(id).getDescription();
 	}
 
-	public Set<Product> getProducts() {
+	public Set<Product> getCurrentSale() {
 		return this.currentSale.keySet();
 	}
 

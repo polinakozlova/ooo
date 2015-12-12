@@ -42,8 +42,8 @@ public class Controller {
 		return facade.getIDByDescription(description);
 	}
 
-	public Set<Product> getProducts() {
-		return facade.getProducts();
+	public Set<Product> getCurrentSale() {
+		return facade.getCurrentSale();
 	}
 
 	public int getProductQuantity(Product product) {
@@ -59,7 +59,14 @@ public class Controller {
 	}
 
 	public void adjustPriceAfterPromo() {
-		facade.adjustPriceAfterPromo();
-		
+		facade.adjustPriceAfterPromo();	
+	}
+	
+	public String getProductDescription(Product product){
+		return facade.getProductDescription(product);
+	}
+	
+	public double getProductPrice(Product product) {
+		return facade.getProductPrice(product);
 	}
 }

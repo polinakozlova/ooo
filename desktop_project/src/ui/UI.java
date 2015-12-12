@@ -235,11 +235,11 @@ public class UI {
 
 	private void updateTable(Object[][] tableData, Controller controller) {
 		int i = 0;
-		for (Product pr : controller.getProducts()) {
-			tableData[i][0] = pr.getDescription();
+		for (Product pr : controller.getCurrentSale()) {
+			tableData[i][0] = controller.getProductDescription(pr);
 			tableData[i][1] = controller.getProductQuantity(pr);
-			tableData[i][2] = pr.getPrice();
-			tableData[i][3] = pr.getPrice() * controller.getProductQuantity(pr);
+			tableData[i][2] = controller.getProductPrice(pr);
+			tableData[i][3] = controller.getProductPrice(pr) * controller.getProductQuantity(pr);
 			i++;
 		}
 		while (i < 420) {

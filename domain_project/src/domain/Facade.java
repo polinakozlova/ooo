@@ -3,7 +3,7 @@ package domain;
 import java.util.Set;
 
 public class Facade {
-	Sale sale;
+	private Sale sale;
 	
 	public Facade() {
 		this.sale = new Sale();
@@ -17,8 +17,8 @@ public class Facade {
 		return sale.getTotalPrice();
 	}
 	
-	public Set<Product> getProducts() {
-		return sale.getProducts();
+	public Set<Product> getCurrentSale() {
+		return sale.getCurrentSale();
 	}
 	
 	public void setProductSaleQuantity(String id, int quantity) {
@@ -57,4 +57,12 @@ public class Facade {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public String getProductDescription(Product product){
+		return product.getDescription();
+	}
+	
+	public double getProductPrice(Product product) {
+		return product.getPrice();
+	}	
 }

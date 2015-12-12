@@ -20,4 +20,7 @@ public DbException(String message){
 public DbException(Throwable exception){
 	super(exception);
 }
+
+
+
 }
