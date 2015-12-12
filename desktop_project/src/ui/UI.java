@@ -149,19 +149,11 @@ public class UI {
 					JOptionPane.showMessageDialog(null, "Quantity should be above 0.", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				else {
-					try {
-						controller.addProductToSale(productCode.getText(), quantity.getText());
-						showNewPrice(toPay, controller);
-						showNewPrice(price, controller);
-						updateTable(tableData, controller);
-						productTable.repaint();
-					} catch (DbException DbException) {
-						JOptionPane.showMessageDialog(null,
-								"Product with ID " + productCode.getText() + " doesn't exist.", "Error",
-								JOptionPane.ERROR_MESSAGE);
-					}
+					Action al = new Action();
+					al.actionPerformed(e);
 				}
 			}
+			
 		});
 
 		confirmPromo.addActionListener(new ActionListener() {
