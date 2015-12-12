@@ -2,7 +2,8 @@ package controller;
 
 import java.util.Set;
 
-import domain.*;
+import domain.Facade;
+import domain.Product;
 
 /**
  * @author Yannick Crabb�, Polina Kozlova

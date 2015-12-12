@@ -10,28 +10,39 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
 import controller.Controller;
-import domain.DbException;
+//import domain.DbException;
 import domain.Product;
 
 /**
  * @author Yannick Crabb�
  */
 public class UI {
+	private JTextField quantity;
+	private JTextField productCode;
+	private JTextField price;
+	private JTextField toPay;
+	private String[] columnNames;
+	private Object[][] tableData;
+	private JTable productTable;
+	private Controller controller;
 
 	public UI() {
+		this.quantity = new JTextField(2);
+		this.productCode = new JTextField(10);
+		this.price = new JTextField(5);
+		this.toPay = new JTextField(5);
+		this.columnNames = new String[] { "Description", "Quantity", "Unit price", "Total price" };
+		this.tableData = new Object[420][4];
+		this.productTable = new JTable(tableData, columnNames);
+		this.controller = new Controller();
 	}
-	
-	
 
-	public void makeUI(Controller controller) {
+	public void makeUI() {
 		JFrame frameCashier = new JFrame("Shop");
 		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		frameCashier.add(pane);
 
-		String[] columnNames = { "Description", "Quantity", "Unit price", "Total price" };
-		Object[][] tableData = new Object[420][4];
-		JTable productTable = new JTable(tableData, columnNames);
 		JScrollPane tableContainer = new JScrollPane(productTable);
 		// c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
@@ -45,7 +56,6 @@ public class UI {
 		c.gridy = 0;
 		pane.add(labelProduct, c);
 
-		JTextField productCode = new JTextField(10);
 		c.insets = new Insets(0, 5, 0, 0);
 		c.gridx = 2;
 		c.gridy = 0;
@@ -58,7 +68,6 @@ public class UI {
 		c.gridy = 0;
 		pane.add(labelQuantity, c);
 
-		JTextField quantity = new JTextField(2);
 		quantity.setText("1");
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = new Insets(0, 5, 0, 0);
@@ -79,7 +88,6 @@ public class UI {
 		c.gridy = 1;
 		pane.add(labelToPay, c);
 
-		JTextField toPay = new JTextField(5);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 2;
 		c.gridy = 1;
@@ -129,7 +137,6 @@ public class UI {
 		cc.gridy = 0;
 		paneCust.add(label, cc);
 
-		JTextField price = new JTextField(5);
 		cc.fill = GridBagConstraints.HORIZONTAL;
 		cc.insets = new Insets(0, 5, 0, 0);
 		cc.gridx = 1;
@@ -142,19 +149,9 @@ public class UI {
 		frameCustomer.setResizable(false);
 		frameCustomer.setVisible(true);
 
-		add.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (Integer.parseInt(quantity.getText()) <= 0)
-					JOptionPane.showMessageDialog(null, "Quantity should be above 0.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-				else {
-					Action al = new Action();
-					al.actionPerformed(e);
-				}
-			}
-			
-		});
+		add.addActionListener(
+				new AddButtonActionListener(productCode, quantity, toPay, price, productTable, tableData, controller, this) {
+				});
 
 		confirmPromo.addActionListener(new ActionListener() {
 			@Override
@@ -175,9 +172,8 @@ public class UI {
 					JOptionPane.showMessageDialog(null,
 							"The amount paid should be " + Double.parseDouble(price.getText()) + " or higher.",
 							"Invalid input", JOptionPane.ERROR_MESSAGE);
-				}
-				else {
-					//scherm leegmaken voor nieuwe sale
+				} else {
+					// scherm leegmaken voor nieuwe sale
 					for (int i = 0; i < 420; i++) {
 						tableData[i][0] = "";
 						tableData[i][1] = "";
@@ -221,13 +217,13 @@ public class UI {
 		});
 	}
 
-	private void showNewPrice(JTextField field, Controller controller) {
+	public void showNewPrice(JTextField field, Controller controller) {
 		field.setText(String.valueOf(controller.getTotalPrice()));
 	}
 
-	private void updateTable(Object[][] tableData, Controller controller) {
+	public void updateTable(Object[][] tableData, Controller controller) {
 		int i = 0;
-		for (Product pr : controller.getCurrentSale()) {
+			for (Product pr : controller.getCurrentSale()) {
 			tableData[i][0] = controller.getProductDescription(pr);
 			tableData[i][1] = controller.getProductQuantity(pr);
 			tableData[i][2] = controller.getProductPrice(pr);
@@ -241,5 +237,33 @@ public class UI {
 			tableData[i][3] = "";
 			i++;
 		}
+	}
+
+	public JTextField getQuantity() {
+		return this.quantity;
+	}
+
+	public JTextField getProductCode() {
+		return this.productCode;
+	}
+
+	public JTextField getPrice() {
+		return this.price;
+	}
+
+	public JTextField getToPay() {
+		return this.toPay;
+	}
+
+	public JTable getProductTable() {
+		return this.productTable;
+	}
+
+	public Object[][] getTableData() {
+		return this.tableData;
+	}
+
+	public Controller getController() {
+		return controller;
 	}
 }
