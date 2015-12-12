@@ -41,7 +41,7 @@ public class AddButtonActionListener implements ActionListener {
 				controller.addProductToSale(productCode.getText(), quantity.getText());
 				ui.showNewPrice(toPay, controller);
 				ui.showNewPrice(price, controller);
-				ui.updateTable(tableData, controller);
+				controller.updateSaleTable(tableData);
 				productTable.repaint();
 			} catch (DbException DbException) {
 				JOptionPane.showMessageDialog(null,
