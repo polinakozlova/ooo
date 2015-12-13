@@ -4,6 +4,7 @@ import java.util.Set;
 
 import domain.Facade;
 import domain.product.Product;
+import observer.Observer;
 
 /**
  * @author Yannick Crabb�, Polina Kozlova
@@ -73,5 +74,9 @@ public class Controller {
 	
 	public Object[][] updateSaleTable(Object[][] tableData) {
 		return facade.updateSaleTable(tableData);
+	}
+	
+	public void registerObserver(Observer o) {
+		facade.registerObserver(o);
 	}
 }

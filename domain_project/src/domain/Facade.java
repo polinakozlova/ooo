@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Set;
 
 import domain.product.Product;
+import observer.Observer;
 
 public class Facade {
 	private Sale sale;
@@ -80,5 +81,9 @@ public class Facade {
 	
 	public Object[][] updateSaleTable(Object[][] tableData) {
 		return sale.updateSaleTable(tableData);
+	}
+	
+	public void registerObserver(Observer o) {
+		sale.registerObserver(o);
 	}
 }

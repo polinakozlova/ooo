@@ -19,8 +19,8 @@ public class ConfirmSaleButtonActionListener implements ActionListener {
 	private Object[][] tableData;
 	private Controller controller;
 
-	public ConfirmSaleButtonActionListener(JTextField productCode, JTextField quantity, JTextField toPay, JTextField price,
-			JTable productTable, Object[][] tableData, Controller controller) {
+	public ConfirmSaleButtonActionListener(JTextField productCode, JTextField quantity, JTextField toPay,
+			JTextField price, JTable productTable, Object[][] tableData, Controller controller) {
 		this.productCode = productCode;
 		this.quantity = quantity;
 		this.toPay = toPay;
@@ -32,25 +32,28 @@ public class ConfirmSaleButtonActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-			double amountPaid = Double.parseDouble(JOptionPane.showInputDialog(null, "Amount paid by customer: "));
-			if (amountPaid < Double.parseDouble(price.getText())) {
-				JOptionPane.showMessageDialog(null,
-						"The amount paid should be " + Double.parseDouble(price.getText()) + " or higher.",
-						"Invalid input", JOptionPane.ERROR_MESSAGE);
-			} else {
-				// scherm leegmaken voor nieuwe sale
-				for (int i = 0; i < 420; i++) {
-					tableData[i][0] = "";
-					tableData[i][1] = "";
-					tableData[i][2] = "";
-					tableData[i][3] = "";
-				}
-				productTable.repaint();
-				controller.emptyCurrentSale();
-				price.setText("0.0");
-				toPay.setText("0.0");
-				quantity.setText("1");
-				productCode.setText("");
+		double salePrice = Double.parseDouble(price.getText());
+		double amountPaid = Double.parseDouble(JOptionPane.showInputDialog(null, "Amount paid by customer: "));
+		double change = amountPaid - salePrice;
+		if (amountPaid < Double.parseDouble(price.getText())) {
+			JOptionPane.showMessageDialog(null,
+					"The amount paid should be " + Double.parseDouble(price.getText()) + " or higher.", "Invalid input",
+					JOptionPane.ERROR_MESSAGE);
+		} else {
+			for (int i = 0; i < 420; i++) {
+				tableData[i][0] = "";
+				tableData[i][1] = "";
+				tableData[i][2] = "";
+				tableData[i][3] = "";
 			}
+			productTable.repaint();
+			controller.emptyCurrentSale();
+			price.setText("0.0");
+			toPay.setText("0.0");
+			quantity.setText("1");
+			productCode.setText("");
+			JOptionPane.showMessageDialog(null, "Price: " + salePrice + "\n" + "Amount paid by customer: "
+					+ amountPaid + "\n" + "Change: " + change, null, JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
+}

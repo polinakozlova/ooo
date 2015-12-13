@@ -19,7 +19,7 @@ public class PromoCodeDB {
 			this.properties = new Properties();
 			this.url = "jdbc:postgresql://gegevensbanken.khleuven.be:51516/2TX32";
 			properties.setProperty("user", "r0459898");
-			properties.setProperty("password", "OOOPASS");
+			properties.setProperty("password", "KittyMiauw66");
 			properties.setProperty("ssl", "true");
 			properties.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
 			System.out.println("properties");
