@@ -1,4 +1,5 @@
 package main;
+import controller.Controller;
 import ui.UI;
 
 /**
@@ -6,6 +7,6 @@ import ui.UI;
  */
 public class Launcher {
 	public static void main(String[] args) {
-		new UI().makeUI();	
+		new UI().makeUI(new Controller());	
 	}
 }

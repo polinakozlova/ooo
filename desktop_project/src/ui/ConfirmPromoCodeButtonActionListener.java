@@ -7,6 +7,9 @@ import javax.swing.JTextField;
 
 import controller.Controller;
 
+/**
+ * @author Yannick Crabbe
+ */
 public class ConfirmPromoCodeButtonActionListener implements ActionListener {
 	private JTextField promoCode;
 	private Controller controller;

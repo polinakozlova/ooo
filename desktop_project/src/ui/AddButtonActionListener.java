@@ -8,6 +8,9 @@ import javax.swing.JTextField;
 import controller.Controller;
 import domain.DbException;
 
+/**
+ * @author Yannick Crabbe
+ */
 public class AddButtonActionListener implements ActionListener {
 	private JTextField productCode;
 	private JTextField quantity;

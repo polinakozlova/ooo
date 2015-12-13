@@ -7,6 +7,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import controller.Controller;
 
+/**
+ * @author Yannick Crabbe
+ */
 public class ConfirmSaleButtonActionListener implements ActionListener {
 	private JTextField productCode;
 	private JTextField quantity;

@@ -1,14 +1,15 @@
 package ui;
 
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.event.TableModelEvent;
-
+import javax.swing.event.TableModelListener;
 import controller.Controller;
 
+/**
+ * @author Yannick Crabbe
+ */
 public class ProductTableChangedListener implements TableModelListener {
 	private JTextField toPay;
 	private JTextField price;
@@ -27,7 +28,6 @@ public class ProductTableChangedListener implements TableModelListener {
 		this.ui = ui;
 	}
 
-	@Override
 	public void tableChanged(TableModelEvent e) {
 		try {
 			if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) == 0) {

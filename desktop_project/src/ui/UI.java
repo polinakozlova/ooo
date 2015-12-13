@@ -4,31 +4,27 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import javax.swing.*;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import controller.Controller;
 
 /**
- * @author Yannick Crabb�
+ * @author Yannick Crabbe
  */
 public class UI {
-	private Controller controller;
 
-	public UI() {	
-		this.controller = new Controller();
+	public UI() {
 	}
 
-	public void makeUI() {
+	public void makeUI(Controller controller) {
 		JFrame frameCashier = new JFrame("Shop");
 		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		frameCashier.add(pane);
 
-		String []columnNames = { "Description", "Quantity", "Unit price", "Total price" };
+		String[] columnNames = { "Description", "Quantity", "Unit price", "Total price" };
 		Object[][] tableData = new Object[420][4];
 		JTable productTable = new JTable(tableData, columnNames);
 		JScrollPane tableContainer = new JScrollPane(productTable);
-		//c.fill = GridBagConstraints.BOTH;
+		// c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
 		pane.add(tableContainer, c);
@@ -144,40 +140,12 @@ public class UI {
 		confirmPromo.addActionListener(new ConfirmPromoCodeButtonActionListener(promoCode, controller) {
 		});
 
-		confirmSale.addActionListener(new ConfirmSaleButtonActionListener(productCode, quantity, toPay, price, productTable,
-				tableData, controller) {
+		confirmSale.addActionListener(new ConfirmSaleButtonActionListener(productCode, quantity, toPay, price,
+				productTable, tableData, controller) {
 		});
 
-		/**
-		productTable.getModel().addTableModelListener(new ProductTableChangedListener(toPay, price, productTable,
-				tableData, controller, this) {	
-		});
-		*/
-		productTable.getModel().addTableModelListener(new TableModelListener() {
-			@Override
-			public void tableChanged(TableModelEvent e) {
-				try {
-					if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) == 0) {
-						controller.removeProductFromSale(
-								controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()));
-					} else if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) < 0) {
-						JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher.", "Invalid input",
-								JOptionPane.ERROR_MESSAGE);
-					} else {
-						controller.setProductSaleQuantity(
-								controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
-								Integer.parseInt(tableData[e.getFirstRow()][1].toString()));
-					}
-					showNewPrice(toPay, controller);
-					showNewPrice(price, controller);
-					controller.updateSaleTable(tableData);
-					productTable.repaint();
-				} catch (NumberFormatException NumberFormatException) {
-					JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher.", "Invalid input",
-							JOptionPane.ERROR_MESSAGE);
-				}
-			}
-		});
+		productTable.getModel().addTableModelListener(
+				new ProductTableChangedListener(toPay, price, productTable, tableData, controller, this));
 	}
 
 	public void showNewPrice(JTextField field, Controller controller) {
