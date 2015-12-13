@@ -8,6 +8,10 @@ public class Facade {
 	public Facade() {
 		this.sale = new Sale();
 	}
+	
+	public Sale getSale() {
+		return this.sale;
+	}
 
 	public void addProductToSale(String id, String quantity) {
 		sale.addProductToSale(id, quantity);	

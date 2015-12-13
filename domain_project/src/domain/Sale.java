@@ -1,15 +1,22 @@
 package domain;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 import observer.Observable;
 import observer.Observer;
+import states.*;
 
 public class Sale implements Observable {
 	private ProductDB productDB;
 	private ProductRepository productRepo;
 	private HashMap<Product, Integer> currentSale;
+	private ArrayList<Observer> observers;
+	private State state;
+	private State pendingState;
+	private State cancelledState;
+	private State paidState;
 
 	public Sale() {
 		this.currentSale = new HashMap<Product, Integer>();
@@ -18,6 +25,19 @@ public class Sale implements Observable {
 		} catch (SQLException e) {
 		}
 		this.productRepo = productDB.getRepo();
+		this.pendingState = new PendingState(this);
+		this.cancelledState = new CancelledState(this);
+		this.paidState = new PaidState(this);
+		this.setState(pendingState);
+		//this.registerObserver(o);
+	}
+	
+	public State getState() {
+		return this.state;
+	}
+	
+	public void setState(State state) {
+		this.state = state;
 	}
 	
 	public void addProductToSale(String code, String quantity) {
@@ -54,8 +74,13 @@ public class Sale implements Observable {
 		return null;
 	}
 	
+	public double paySale(double amountPaid) {
+		this.setState(paidState);
+		return amountPaid - this.getTotalPrice();
+	}
+	
 	public void emptyCurrentSale() {
-		this.currentSale.clear();
+		this.setState(cancelledState);	
 	}
 	
 	public double getProductPrice(String id) {
@@ -99,17 +124,16 @@ public class Sale implements Observable {
 	}
 
 	public void registerObserver(Observer o) {
-		// TODO Auto-generated method stub
-
+		observers.add(o);
 	}
 
 	public void removeObserver(Observer o) {
-		// TODO Auto-generated method stub
-
+		observers.remove(o);
 	}
 
 	public void notifyObservers(String message) {
-		// TODO Auto-generated method stub
-
+		message = String.valueOf(this.getTotalPrice());
+		for (Observer ops : observers) 
+			ops.setText(message);
 	}
 }
