@@ -1,5 +1,7 @@
 package domain;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,25 +12,31 @@ import states.*;
 
 public class Sale implements Observable {
 	private ProductDB productDB;
+	private PromoCodeDB promoCodeDB;
 	private ProductRepository productRepo;
+	private PromoCodeRepository pcr;
 	private HashMap<Product, Integer> currentSale;
 	private ArrayList<Observer> observers;
 	private State state;
 	private State pendingState;
 	private State cancelledState;
 	private State paidState;
+	private double price;
 
-	public Sale() {
+	public Sale() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		this.currentSale = new HashMap<Product, Integer>();
 		try {
 			this.productDB = new ProductDB();
+			this.promoCodeDB = new PromoCodeDB();
 		} catch (SQLException e) {
 		}
 		this.productRepo = productDB.getRepo();
+		this.pcr = promoCodeDB.getRepo();
 		this.pendingState = new PendingState(this);
 		this.cancelledState = new CancelledState(this);
 		this.paidState = new PaidState(this);
 		this.setState(pendingState);
+		this.price = this.getTotalPrice();
 		//this.registerObserver(o);
 	}
 	
@@ -100,9 +108,21 @@ public class Sale implements Observable {
 	}
 
 	public boolean checkValidPromoCode(String code) {
-		//TODO
-		return false;		
+		PromoCode promoCode = pcr.getPromoCodeById(Integer.parseInt(code));
+		switch(promoCode.getType()){
+			case 1: //TODO
+			case 2: //TODO
+			case 3: if(this.getTotalPrice() >= promoCode.getSaleAmountNeeded()){
+				this.price = this.getTotalPrice() - (promoCode.getPercentage() / 100)*this.getTotalPrice();
+				return true;
+				}
+			case 4: 
+				this.price = this.getTotalPrice() - (promoCode.getPercentage() / 100)*this.getTotalPrice();
+				return true;
+		}
+		return false;
 	}
+	
 	
 	public Object[][] updateSaleTable(Object[][] tableData) {
 		int i = 0;
