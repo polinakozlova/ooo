@@ -1,4 +1,4 @@
-package domain;
+package domain.person;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
+
+import domain.DbException;
 
 /**
  * @author Polina Kozlova

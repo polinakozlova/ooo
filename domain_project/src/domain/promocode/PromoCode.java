@@ -1,4 +1,4 @@
-package domain;
+package domain.promocode;
 
 public class PromoCode {
 	int id;

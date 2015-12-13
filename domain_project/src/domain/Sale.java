@@ -6,6 +6,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+
+import domain.product.Product;
+import domain.product.ProductDB;
+import domain.product.ProductRepository;
+import domain.promocode.PromoCode;
+import domain.promocode.PromoCodeDB;
+import domain.promocode.PromoCodeRepository;
 import observer.Observable;
 import observer.Observer;
 import states.*;

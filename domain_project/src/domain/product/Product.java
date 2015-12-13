@@ -1,4 +1,4 @@
-package domain;
+package domain.product;
 
 /**
  * @author Polina Kozlova

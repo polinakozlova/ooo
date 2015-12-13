@@ -1,12 +1,20 @@
 package domain;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Set;
+
+import domain.product.Product;
 
 public class Facade {
 	private Sale sale;
 	
 	public Facade() {
-		this.sale = new Sale();
+		try {
+			this.sale = new Sale();
+		} catch (NoSuchAlgorithmException e) {
+		} catch (UnsupportedEncodingException e) {
+		}
 	}
 	
 	public Sale getSale() {

@@ -1,4 +1,4 @@
-package domain;
+package domain.promocode;
 
 import java.util.ArrayList;
 
