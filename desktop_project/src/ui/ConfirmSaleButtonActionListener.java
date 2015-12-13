@@ -33,7 +33,7 @@ public class ConfirmSaleButtonActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 			double amountPaid = Double.parseDouble(JOptionPane.showInputDialog(null, "Amount paid by customer: "));
-			if (amountPaid <= Double.parseDouble(price.getText())) {
+			if (amountPaid < Double.parseDouble(price.getText())) {
 				JOptionPane.showMessageDialog(null,
 						"The amount paid should be " + Double.parseDouble(price.getText()) + " or higher.",
 						"Invalid input", JOptionPane.ERROR_MESSAGE);

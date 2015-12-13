@@ -11,9 +11,6 @@ import controller.Controller;
  */
 public class UI {
 
-	public UI() {
-	}
-
 	public void makeUI(Controller controller) {
 		JFrame frameCashier = new JFrame("Shop");
 		JPanel pane = new JPanel(new GridBagLayout());
@@ -70,7 +67,7 @@ public class UI {
 		c.gridy = 1;
 		pane.add(labelToPay, c);
 
-		JTextField toPay = new JTextField(5);
+		TextField toPay = new TextField(controller);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 2;
 		c.gridy = 1;
@@ -120,21 +117,22 @@ public class UI {
 		cc.gridy = 0;
 		paneCust.add(label, cc);
 
-		JTextField price = new JTextField(5);
+		TextField price = new TextField(controller);
 		cc.fill = GridBagConstraints.HORIZONTAL;
 		cc.insets = new Insets(0, 5, 0, 0);
 		cc.gridx = 1;
 		cc.gridy = 0;
-		toPay.setEnabled(false);
+		price.setEnabled(false);
 		paneCust.add(price, cc);
 
+		frameCustomer.setSize(200, 200);
 		frameCustomer.pack();
 		frameCustomer.setLocationRelativeTo(null);
-		frameCustomer.setResizable(false);
+		//frameCustomer.setResizable(false);
 		frameCustomer.setVisible(true);
 
 		add.addActionListener(new AddButtonActionListener(productCode, quantity, toPay, price, productTable, tableData,
-				controller, this) {
+				controller) {
 		});
 
 		confirmPromo.addActionListener(new ConfirmPromoCodeButtonActionListener(promoCode, controller) {
@@ -145,10 +143,6 @@ public class UI {
 		});
 
 		productTable.getModel().addTableModelListener(
-				new ProductTableChangedListener(toPay, price, productTable, tableData, controller, this));
-	}
-
-	public void showNewPrice(JTextField field, Controller controller) {
-		field.setText(String.valueOf(controller.getTotalPrice()));
+				new ProductTableChangedListener(toPay, price, productTable, tableData, controller));
 	}
 }

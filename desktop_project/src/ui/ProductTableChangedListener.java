@@ -11,21 +11,19 @@ import controller.Controller;
  * @author Yannick Crabbe
  */
 public class ProductTableChangedListener implements TableModelListener {
-	private JTextField toPay;
-	private JTextField price;
+	private TextField toPay;
+	private TextField price;
 	private JTable productTable;
 	private Object[][] tableData;
 	private Controller controller;
-	private UI ui;
 
-	public ProductTableChangedListener(JTextField toPay, JTextField price,
-			JTable productTable, Object[][] tableData, Controller controller, UI ui) {
+	public ProductTableChangedListener(TextField toPay, TextField price,
+			JTable productTable, Object[][] tableData, Controller controller) {
 		this.toPay = toPay;
 		this.price = price;
 		this.productTable = productTable;
 		this.tableData = tableData;
 		this.controller = controller;
-		this.ui = ui;
 	}
 
 	public void tableChanged(TableModelEvent e) {
@@ -41,8 +39,8 @@ public class ProductTableChangedListener implements TableModelListener {
 						controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
 						Integer.parseInt(tableData[e.getFirstRow()][1].toString()));
 			}
-			ui.showNewPrice(toPay, controller);
-			ui.showNewPrice(price, controller);
+			toPay.update();
+			price.update();
 			controller.updateSaleTable(tableData);
 			productTable.repaint();
 		} catch (NumberFormatException NumberFormatException) {
