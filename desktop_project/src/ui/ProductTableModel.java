@@ -2,14 +2,23 @@ package ui;
 
 import javax.swing.table.DefaultTableModel;
 
+//tableModel = new DefaultTableModel(new Object[]{"column1","column2"},0);
+//table.setModel(tableModel);
+//btnAdd.addActionListener(new ActionListener(){
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        int count = tableModel.getRowCount()+1;
+//        tableModel.addRow(new Object[]{txtField1.getText(),txtField1.getText()});
+//    }
+//});
+
 @SuppressWarnings("serial")
 public class ProductTableModel extends DefaultTableModel {
-	private String[] columnNames;
+	private String[] columnNames = { "Description", "Quantity", "Unit price", "Total price" };
     private Object[][] tableData;
     
-    public ProductTableModel(String[] columnNames, Object[][]tableData) {
-    	this.tableData = tableData;
-    	this.columnNames = columnNames;
+    public ProductTableModel() {
+    	this.tableData = new Object[0][4];
     }
     
     public Object[][] getTableData() {

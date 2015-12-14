@@ -11,17 +11,17 @@ import domain.product.Product;
 import domain.product.ProductDB;
 import domain.product.ProductRepository;
 import domain.promocode.Promocode;
-import domain.promocode.PromoCodeDB;
-import domain.promocode.PromoCodeRepository;
+import domain.promocode.PromocodeDB;
+import domain.promocode.PromocodeRepository;
 import observer.Observable;
 import observer.Observer;
 import states.*;
 
 public class Sale implements Observable {
 	private ProductDB productDB;
-	private PromoCodeDB promoCodeDB;
+	private PromocodeDB promoCodeDB;
 	private ProductRepository productRepo;
-	private PromoCodeRepository pcr;
+	private PromocodeRepository pcr;
 	private HashMap<Product, Integer> currentSale;
 	private ArrayList<Observer> observers;
 	private State state;
@@ -35,7 +35,7 @@ public class Sale implements Observable {
 		this.currentSale = new HashMap<Product, Integer>();
 		try {
 			this.productDB = new ProductDB();
-			this.promoCodeDB = new PromoCodeDB(productDB);
+			this.promoCodeDB = new PromocodeDB(productDB);
 		} catch (SQLException e) {
 		}
 		this.productRepo = productDB.getRepo();

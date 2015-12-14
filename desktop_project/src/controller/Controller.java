@@ -41,10 +41,6 @@ public class Controller {
 		return facade.getIDByDescription(description);
 	}
 
-	public boolean checkValidPromoCode(String promocode) {
-		return facade.checkValidPromoCode(promocode);	
-	}
-
 	public void emptyCurrentSale() {
 		facade.emptyCurrentSale();
 	}

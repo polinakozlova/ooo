@@ -18,7 +18,7 @@ public class ProductTableChangedListener implements TableModelListener {
 	private Controller controller;
 
 	public ProductTableChangedListener(TextField toPay, TextField price,
-			JTable productTable, Object[][] tableData, Controller controller) {
+			JTable productTable, Controller controller) {
 		this.toPay = toPay;
 		this.price = price;
 		this.productTable = productTable;

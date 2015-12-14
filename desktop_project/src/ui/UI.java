@@ -4,6 +4,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import controller.Controller;
 
 /**
@@ -17,10 +19,12 @@ public class UI {
 		GridBagConstraints c = new GridBagConstraints();
 		frameCashier.add(pane);
 
-		
-		ProductTable productTable = new ProductTable(controller);
+		JTable productTable = new JTable();
+		DefaultTableModel tableModel = new DefaultTableModel(
+				new Object[] { "Description", "Quantity", "Unit price", "Total price" }, 0);
+		productTable.setModel(tableModel);
 		JScrollPane tableContainer = new JScrollPane(productTable);
-		//c.fill = GridBagConstraints.BOTH;
+		// c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
 		pane.add(tableContainer, c);
@@ -127,21 +131,20 @@ public class UI {
 		frameCustomer.setSize(200, 200);
 		frameCustomer.pack();
 		frameCustomer.setLocationRelativeTo(null);
-		//frameCustomer.setResizable(false);
+		// frameCustomer.setResizable(false);
 		frameCustomer.setVisible(true);
 
-		add.addActionListener(new AddButtonActionListener(productCode, quantity, productTable, tableData,
-				controller) {
+		add.addActionListener(new AddButtonActionListener(productCode, quantity, productTable, controller) {
 		});
 
 		confirmPromo.addActionListener(new ConfirmPromoCodeButtonActionListener(promoCode, controller) {
 		});
 
 		confirmSale.addActionListener(new ConfirmSaleButtonActionListener(productCode, quantity, toPay, price,
-				productTable, tableData, controller) {
+				productTable, controller) {
 		});
 
 		productTable.getModel().addTableModelListener(
-				new ProductTableChangedListener(toPay, price, productTable, tableData, controller));
+				new ProductTableChangedListener(toPay, price, productTable, controller));
 	}
 }

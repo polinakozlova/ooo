@@ -21,11 +21,13 @@ public class ConfirmPromoCodeButtonActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		/**
 		if (controller.checkValidPromoCode(promoCode.getText())) {
 			controller.adjustPriceAfterPromo();
 			// recalculate price
 			// TODO
 		}
+		*/
 		
 	}
 
