@@ -17,11 +17,10 @@ public class UI {
 		GridBagConstraints c = new GridBagConstraints();
 		frameCashier.add(pane);
 
-		String[] columnNames = { "Description", "Quantity", "Unit price", "Total price" };
-		Object[][] tableData = new Object[420][4];
-		JTable productTable = new JTable(tableData, columnNames);
+		
+		ProductTable productTable = new ProductTable(controller);
 		JScrollPane tableContainer = new JScrollPane(productTable);
-		// c.fill = GridBagConstraints.BOTH;
+		//c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
 		pane.add(tableContainer, c);
