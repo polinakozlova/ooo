@@ -10,7 +10,7 @@ import java.util.Set;
 import domain.product.Product;
 import domain.product.ProductDB;
 import domain.product.ProductRepository;
-import domain.promocode.PromoCode;
+import domain.promocode.Promocode;
 import domain.promocode.PromoCodeDB;
 import domain.promocode.PromoCodeRepository;
 import observer.Observable;
@@ -29,12 +29,13 @@ public class Sale implements Observable {
 	private State cancelledState;
 	private State paidState;
 	private double price;
+	private Promocode promocode;
 
 	public Sale() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		this.currentSale = new HashMap<Product, Integer>();
 		try {
 			this.productDB = new ProductDB();
-			this.promoCodeDB = new PromoCodeDB();
+			this.promoCodeDB = new PromoCodeDB(productDB);
 		} catch (SQLException e) {
 		}
 		this.productRepo = productDB.getRepo();
@@ -45,6 +46,19 @@ public class Sale implements Observable {
 		this.setState(pendingState);
 		this.price = this.getTotalPrice();
 		this.observers = new ArrayList<Observer>();
+		setPromocode(promocode);
+	}
+	
+	private void setPromocode(Promocode pc){
+		this.promocode = pc;
+	}
+	
+	public Promocode getPromocode(){
+		return this.promocode;
+	}
+	
+	public boolean contains(Product product) {
+		return currentSale.containsKey(product);
 	}
 	
 	public State getState() {
@@ -116,22 +130,13 @@ public class Sale implements Observable {
 		return this.currentSale.get(product);
 	}
 
-	public boolean checkValidPromoCode(String code) {
-		PromoCode promoCode = pcr.getPromoCodeById(Integer.parseInt(code));
-		switch(promoCode.getType()){
-			case 1: //TODO
-			case 2: //TODO
-			case 3: if(this.getTotalPrice() >= promoCode.getSaleAmountNeeded()){
-				this.price = this.getTotalPrice() - (promoCode.getPercentage() / 100)*this.getTotalPrice();
-				return true;
-				}
-			case 4: 
-				this.price = this.getTotalPrice() - (promoCode.getPercentage() / 100)*this.getTotalPrice();
-				return true;
+
+	public double getReducedPrice(){
+		if(this.promocode != null){
+			return promocode.getReducedPrice(this);
 		}
-		return false;
+		return this.getTotalPrice();
 	}
-	
 	
 	public Object[][] updateSaleTable(Object[][] tableData) {
 		int i = 0;

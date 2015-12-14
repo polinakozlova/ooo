@@ -58,8 +58,8 @@ public class Facade implements IFacade {
 		return sale.getProductQuantity(product);
 	}
 	
-	public boolean checkValidPromoCode(String promocode) {
-		return sale.checkValidPromoCode(promocode);		
+	public double getReducedPrice(Sale sale){
+		return sale.getReducedPrice();
 	}
 	
 	public void emptyCurrentSale() {

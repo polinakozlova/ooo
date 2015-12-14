@@ -10,24 +10,30 @@ import java.sql.Statement;
 import java.util.Properties;
 
 import domain.DbException;
+import domain.product.Product;
+import domain.product.ProductDB;
+import domain.product.ProductRepository;
 
 
 public class PromoCodeDB {
 		String url;
 	    Properties properties;
-		public PromoCodeDB() throws SQLException {
+	    ProductDB productDB;
+	    
+		public PromoCodeDB(ProductDB productDB) throws SQLException {
 			this.properties = new Properties();
 			this.url = "jdbc:postgresql://gegevensbanken.khleuven.be:51516/2TX32";
 			properties.setProperty("user", "r0459898");
-			properties.setProperty("password", "KittyMiauw66");
+			properties.setProperty("password", "OOOPASS");
 			properties.setProperty("ssl", "true");
 			properties.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
 			System.out.println("properties");
-
+			this.productDB = productDB;
 		}
 		
 		public PromoCodeRepository getRepo() throws NoSuchAlgorithmException, UnsupportedEncodingException{
 			PromoCodeRepository pcr = new PromoCodeRepository();
+			
 			try{
 				Connection connection;
 				Statement statement;
@@ -41,11 +47,33 @@ public class PromoCodeDB {
 					while(result.next()){
 						int id = Integer.parseInt(result.getString("id"));
 						int type = Integer.parseInt(result.getString("type"));
-						int percentage = Integer.parseInt(result.getString("percentage"));
-						double amount = Double.parseDouble(result.getString("amount"));
-						double saleAmountNeeded = Double.parseDouble(result.getString("saleAmountNeeded"));
-						PromoCode promoCode = new PromoCode(id, type, percentage, amount, saleAmountNeeded);
-						pcr.add(promoCode);
+						switch(type){
+						case 1:
+							Promocode promocodeType1 = new PromocodeProductAmount(id,
+									Double.parseDouble(result.getString("amount")),
+									productDB.getProductById(result.getString("productId")));
+							pcr.add(promocodeType1);
+							break;
+						case 2:
+							Promocode promocodeType2 = new PromocodeProductPercentage(id,
+									Integer.parseInt("percentage"),
+									productDB.getProductById(result.getString("productId")));
+							pcr.add(promocodeType2);
+							break;
+						case 3:
+							Promocode promocodeType3 = new PromocodeSaleAmount(id,
+									Double.parseDouble(result.getString("saleAmountNeeded")),
+									Double.parseDouble(result.getString("amount")));
+							pcr.add(promocodeType3);
+							break;
+						case 4:
+							Promocode promocodeType4 = new PromocodeSalePercentage(id, 
+									Integer.parseInt(result.getString("percentage")));
+							pcr.add(promocodeType4);
+							break;
+						default:
+							break;
+						}
 					}
 					connection.close();
 				}catch(SQLException e){
@@ -58,7 +86,7 @@ public class PromoCodeDB {
 		
 
 		
-		public void delete(PromoCode promoCode){
+		public void delete(Promocode promoCode){
 			if(promoCode == null){
 				throw new DbException("No promoCode found");
 			}

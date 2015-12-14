@@ -10,7 +10,7 @@ public interface IFacade {
 
 	public void adjustPriceAfterPromo();
 	
-	public boolean checkValidPromoCode(String promocode);
+	public double getReducedPrice(Sale sale);
 	
 	public void emptyCurrentSale();
 	

@@ -6,17 +6,17 @@ import java.util.ArrayList;
  * @author Polina Kozlova
  */
 public class PromoCodeRepository {
-	private ArrayList<PromoCode> promoCodes = new ArrayList<PromoCode>();
+	private ArrayList<Promocode> promoCodes = new ArrayList<Promocode>();
 	
 	public PromoCodeRepository () {
 	}
 	
-	public void add(PromoCode promoCode){
+	public void add(Promocode promoCode){
 		promoCodes.add(promoCode);
 	}
 	
-	public PromoCode getPromoCodeById(int id){
-		for(PromoCode pc : promoCodes){
+	public Promocode getPromoCodeById(int id){
+		for(Promocode pc : promoCodes){
 			if(pc.getId() == id){
 				return pc;
 			}
