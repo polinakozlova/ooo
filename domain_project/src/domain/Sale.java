@@ -44,7 +44,7 @@ public class Sale implements Observable {
 		this.paidState = new PaidState(this);
 		this.setState(pendingState);
 		this.price = this.getTotalPrice();
-		//this.registerObserver(o);
+		this.observers = new ArrayList<Observer>();
 	}
 	
 	public State getState() {
@@ -61,6 +61,7 @@ public class Sale implements Observable {
 			this.currentSale.put(product, Integer.parseInt(quantity));
 		else
 			this.currentSale.put(product, (this.currentSale.get(product) + Integer.parseInt(quantity)));
+		this.notifyObservers(String.valueOf(this.getTotalPrice()));
 	}
 
 	public void setProductSaleQuantity(String code, int quantity) {
@@ -71,6 +72,7 @@ public class Sale implements Observable {
 	public void removeProductFromSale(String code) {
 		Product product = productDB.getProductById(code);
 		this.currentSale.remove(product);
+		this.notifyObservers(String.valueOf(this.getTotalPrice()));
 	}
 
 	public double getTotalPrice() {
@@ -159,7 +161,7 @@ public class Sale implements Observable {
 	}
 
 	public void notifyObservers(String message) {
-		message = String.valueOf(this.getTotalPrice());
+		//message = String.valueOf(this.getTotalPrice());
 		for (Observer ops : observers) 
 			ops.setText(message);
 	}

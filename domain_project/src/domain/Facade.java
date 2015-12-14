@@ -7,7 +7,7 @@ import java.util.Set;
 import domain.product.Product;
 import observer.Observer;
 
-public class Facade {
+public class Facade implements IFacade {
 	private Sale sale;
 	
 	public Facade() {

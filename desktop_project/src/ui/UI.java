@@ -131,7 +131,7 @@ public class UI {
 		//frameCustomer.setResizable(false);
 		frameCustomer.setVisible(true);
 
-		add.addActionListener(new AddButtonActionListener(productCode, quantity, toPay, price, productTable, tableData,
+		add.addActionListener(new AddButtonActionListener(productCode, quantity, productTable, tableData,
 				controller) {
 		});
 

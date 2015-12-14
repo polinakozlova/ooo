@@ -14,18 +14,14 @@ import domain.DbException;
 public class AddButtonActionListener implements ActionListener {
 	private JTextField productCode;
 	private JTextField quantity;
-	private TextField toPay;
-	private TextField price;
 	private JTable productTable;
 	private Object[][] tableData;
 	private Controller controller;
 
-	public AddButtonActionListener(JTextField productCode, JTextField quantity, TextField toPay, TextField price,
-			JTable productTable, Object[][] tableData, Controller controller) {
+	public AddButtonActionListener(JTextField productCode, JTextField quantity, JTable productTable,
+			Object[][] tableData, Controller controller) {
 		this.productCode = productCode;
 		this.quantity = quantity;
-		this.toPay = toPay;
-		this.price = price;
 		this.productTable = productTable;
 		this.tableData = tableData;
 		this.controller = controller;
@@ -33,21 +29,17 @@ public class AddButtonActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 		if (Integer.parseInt(quantity.getText()) <= 0)
-			JOptionPane.showMessageDialog(null, "Quantity should be above 0.", "Error",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Quantity should be above 0.", "Error", JOptionPane.ERROR_MESSAGE);
 		else {
 			try {
 				controller.addProductToSale(productCode.getText(), quantity.getText());
-				toPay.update();
-				price.update();
 				controller.updateSaleTable(tableData);
 				productTable.repaint();
 			} catch (DbException DbException) {
-				JOptionPane.showMessageDialog(null,
-						"Product with ID " + productCode.getText() + " doesn't exist.", "Error",
-						JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Product with ID " + productCode.getText() + " doesn't exist.",
+						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
