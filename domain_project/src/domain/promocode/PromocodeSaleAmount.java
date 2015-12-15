@@ -1,15 +1,15 @@
 package domain.promocode;
 
 import domain.Sale;
-
+/**
+ * @author Polina Kozlova
+ */
 public class PromocodeSaleAmount extends Promocode {
 	private double saleAmountNeeded;
 	private double amount;
 
 	public PromocodeSaleAmount(int id, double saleAmountNeeded, double amount) {
-		super(id);
-		setSaleAmountNeeded(saleAmountNeeded);
-		setAmount(amount);
+		super(PromocodeType.SALEAMOUNT, id);
 	}
 
 	private void setAmount(double amount) {
@@ -34,6 +34,12 @@ public class PromocodeSaleAmount extends Promocode {
 			return sale.getTotalPrice() - getAmount();
 		}
 		return sale.getTotalPrice();
+	}
+
+	@Override
+	public void makePromocode() {
+		setSaleAmountNeeded(saleAmountNeeded);
+		setAmount(amount);
 	}
 
 }

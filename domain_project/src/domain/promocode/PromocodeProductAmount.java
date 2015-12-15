@@ -2,15 +2,16 @@ package domain.promocode;
 
 import domain.Sale;
 import domain.product.Product;
-
+/**
+ * @author Polina Kozlova
+ */
 public class PromocodeProductAmount extends Promocode {
 	private double amount;
 	private Product product;
 
 	public PromocodeProductAmount(int id, double amount, Product product) {
-		super(id);
-		setAmount(amount);
-		setProduct(product);
+		super(PromocodeType.PRODUCTAMOUNT, id);
+		makePromocode();
 	}
 
 	private void setAmount(double amount) {
@@ -35,5 +36,11 @@ public class PromocodeProductAmount extends Promocode {
 			return sale.getTotalPrice() - getAmount() * sale.getProductQuantity(product);
 		}
 		return sale.getTotalPrice();
+	}
+
+	@Override
+	public void makePromocode() {
+		setAmount(amount);
+		setProduct(product);
 	}
 }

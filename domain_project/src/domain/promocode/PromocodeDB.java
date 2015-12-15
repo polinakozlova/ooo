@@ -10,8 +10,11 @@ import java.sql.Statement;
 import java.util.Properties;
 
 import domain.DbException;
+import domain.product.Product;
 import domain.product.ProductDB;
-
+/**
+ * @author Polina Kozlova
+ */
 public class PromocodeDB {
 	private String url;
 	private Properties properties;
@@ -21,7 +24,7 @@ public class PromocodeDB {
 		this.properties = new Properties();
 		this.url = "jdbc:postgresql://gegevensbanken.khleuven.be:51516/2TX32";
 		properties.setProperty("user", "r0459898");
-		properties.setProperty("password", "WachtwoordIsStom66");
+		properties.setProperty("password", System.getenv("OOOPASS"));
 		properties.setProperty("ssl", "true");
 		properties.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
 		this.productDB = productDB;
@@ -40,33 +43,18 @@ public class PromocodeDB {
 			ResultSet result = statement.executeQuery("SELECT * FROM r0459898.\"PromoCode\"");
 			while (result.next()) {
 				int id = Integer.parseInt(result.getString("id"));
-				int type = Integer.parseInt(result.getString("type"));
-				switch (type) {
-				case 1:
-					Promocode promocodeType1 = new PromocodeProductAmount(id,
-							Double.parseDouble(result.getString("amount")),
-							productDB.getProductById(result.getString("productId")));
-					pcr.add(promocodeType1);
-					break;
-				case 2:
-					Promocode promocodeType2 = new PromocodeProductPercentage(id,
-							Integer.parseInt(result.getString("percentage")),
-							productDB.getProductById(result.getString("productId")));
-					pcr.add(promocodeType2);
-					break;
-				case 3:
-					Promocode promocodeType3 = new PromocodeSaleAmount(id,
-							Double.parseDouble(result.getString("saleAmountNeeded")),
-							Double.parseDouble(result.getString("amount")));
-					pcr.add(promocodeType3);
-					break;
-				case 4:
-					Promocode promocodeType4 = new PromocodeSalePercentage(id,
-							Integer.parseInt(result.getString("percentage")));
-					pcr.add(promocodeType4);
-					break;
-				default:
-					break;
+				PromocodeType type = PromocodeType.valueOf(result.getString("type"));
+				double amount = Double.parseDouble(result.getString("amount"));
+				Product product = productDB.getProductById(result.getString("productId"));
+				int percentage = Integer.parseInt(result.getString("percentage"));
+				double saleAmountNeeded = Double.parseDouble(result.getString("saleAmountNeeded"));	
+				Promocode promocode = null;
+				try {
+					promocode = PromocodeFactory.makePromocode(type, id, amount, product, percentage, saleAmountNeeded);
+				} catch (Exception e) {
+				}
+				if(promocode != null) {
+					pcr.add(promocode);
 				}
 			}
 			connection.close();

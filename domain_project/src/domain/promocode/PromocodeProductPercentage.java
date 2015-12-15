@@ -3,15 +3,17 @@ package domain.promocode;
 import domain.Sale;
 import domain.product.Product;
 
+/**
+ * @author Polina Kozlova
+ */
+
 public class PromocodeProductPercentage extends Promocode {
 	private int percentage;
 	private Product product;
 
 	public PromocodeProductPercentage(int id, int percentage, Product product) {
-		super(id);
-		setProduct(product);
-		setPercentage(percentage);
-
+		super(PromocodeType.PRODUCTAMOUNT, id);
+		makePromocode();
 	}
 
 	public void setProduct(Product product) {
@@ -37,5 +39,11 @@ public class PromocodeProductPercentage extends Promocode {
 					- getProduct().getPrice() / 100 * getPercentage() * sale.getProductQuantity(getProduct());
 		}
 		return sale.getTotalPrice();
+	}
+
+	@Override
+	public void makePromocode() {
+		setProduct(product);
+		setPercentage(percentage);
 	}
 }
