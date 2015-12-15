@@ -19,10 +19,7 @@ public class UI {
 		GridBagConstraints c = new GridBagConstraints();
 		frameCashier.add(pane);
 
-		JTable productTable = new JTable();
-		DefaultTableModel tableModel = new DefaultTableModel(
-				new Object[] { "Description", "Quantity", "Unit price", "Total price" }, 0);
-		productTable.setModel(tableModel);
+		ProductTable productTable = new ProductTable(controller);
 		JScrollPane tableContainer = new JScrollPane(productTable);
 		// c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
@@ -140,11 +137,11 @@ public class UI {
 		confirmPromo.addActionListener(new ConfirmPromoCodeButtonActionListener(promoCode, controller) {
 		});
 
-		confirmSale.addActionListener(new ConfirmSaleButtonActionListener(productCode, quantity, toPay, price,
-				productTable, controller) {
-		});
+		confirmSale.addActionListener(
+				new ConfirmSaleButtonActionListener(productCode, quantity, toPay, price, productTable, controller) {
+				});
 
-		productTable.getModel().addTableModelListener(
-				new ProductTableChangedListener(toPay, price, productTable, controller));
+		productTable.getModel()
+				.addTableModelListener(new ProductTableChangedListener(toPay, price, productTable, controller));
 	}
 }

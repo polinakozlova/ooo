@@ -3,7 +3,7 @@ package domain.promocode;
 import domain.Sale;
 
 public abstract class Promocode {
-	int id;
+	private int id;
 	
 	public Promocode(int id){
 		this.id = id;
@@ -18,5 +18,4 @@ public abstract class Promocode {
 	}
 	
 	public abstract double getReducedPrice(Sale sale);
-
 }

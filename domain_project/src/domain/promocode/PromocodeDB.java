@@ -21,10 +21,9 @@ public class PromocodeDB {
 		this.properties = new Properties();
 		this.url = "jdbc:postgresql://gegevensbanken.khleuven.be:51516/2TX32";
 		properties.setProperty("user", "r0459898");
-		properties.setProperty("password", "OOOPASS");
+		properties.setProperty("password", "WachtwoordIsStom66");
 		properties.setProperty("ssl", "true");
 		properties.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
-		System.out.println("properties");
 		this.productDB = productDB;
 	}
 
@@ -36,9 +35,7 @@ public class PromocodeDB {
 			Statement statement;
 			Class.forName("org.postgresql.Driver");
 			connection = DriverManager.getConnection(url, properties);
-			System.out.println("connection");
 			statement = connection.createStatement();
-			System.out.println("statement");
 
 			ResultSet result = statement.executeQuery("SELECT * FROM r0459898.\"PromoCode\"");
 			while (result.next()) {
@@ -52,7 +49,8 @@ public class PromocodeDB {
 					pcr.add(promocodeType1);
 					break;
 				case 2:
-					Promocode promocodeType2 = new PromocodeProductPercentage(id, Integer.parseInt("percentage"),
+					Promocode promocodeType2 = new PromocodeProductPercentage(id,
+							Integer.parseInt(result.getString("percentage")),
 							productDB.getProductById(result.getString("productId")));
 					pcr.add(promocodeType2);
 					break;
