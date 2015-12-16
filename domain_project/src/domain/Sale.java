@@ -48,27 +48,27 @@ public class Sale implements Observable {
 		this.observers = new ArrayList<Observer>();
 		setPromocode(promocode);
 	}
-	
-	private void setPromocode(Promocode pc){
+
+	private void setPromocode(Promocode pc) {
 		this.promocode = pc;
 	}
-	
-	public Promocode getPromocode(){
+
+	public Promocode getPromocode() {
 		return this.promocode;
 	}
-	
+
 	public boolean contains(Product product) {
 		return currentSale.containsKey(product);
 	}
-	
+
 	public State getState() {
 		return this.state;
 	}
-	
+
 	public void setState(State state) {
 		this.state = state;
 	}
-	
+
 	public void addProductToSale(String code, String quantity) {
 		Product product = productDB.getProductById(code);
 		if (this.currentSale.get(product) == null)
@@ -96,7 +96,7 @@ public class Sale implements Observable {
 		}
 		return price;
 	}
-	
+
 	public String getIDByDescription(String description) {
 		for (Product pr : currentSale.keySet()) {
 			if (pr.getDescription().equals(description))
@@ -104,16 +104,16 @@ public class Sale implements Observable {
 		}
 		return null;
 	}
-	
+
 	public double paySale(double amountPaid) {
 		this.setState(paidState);
 		return amountPaid - this.getTotalPrice();
 	}
-	
+
 	public void emptyCurrentSale() {
-		this.setState(cancelledState);	
+		this.setState(cancelledState);
 	}
-	
+
 	public double getProductPrice(String id) {
 		return productRepo.getProductById(id).getPrice();
 	}
@@ -130,14 +130,13 @@ public class Sale implements Observable {
 		return this.currentSale.get(product);
 	}
 
-
-	public double getReducedPrice(){
-		if(this.promocode != null){
+	public double getReducedPrice() {
+		if (this.promocode != null) {
 			return promocode.getReducedPrice(this);
 		}
 		return this.getTotalPrice();
 	}
-	
+
 	public Object[][] updateSaleTable(Object[][] tableData) {
 		int i = 0;
 		for (Product pr : this.getCurrentSale()) {
@@ -147,7 +146,7 @@ public class Sale implements Observable {
 			tableData[i][3] = pr.getPrice() * this.getProductQuantity(pr);
 			i++;
 		}
-		while (i < 420) {
+		while (i < 10) {
 			tableData[i][0] = "";
 			tableData[i][1] = "";
 			tableData[i][2] = "";
@@ -166,8 +165,8 @@ public class Sale implements Observable {
 	}
 
 	public void notifyObservers(String message) {
-		//message = String.valueOf(this.getTotalPrice());
-		for (Observer ops : observers) 
+		// message = String.valueOf(this.getTotalPrice());
+		for (Observer ops : observers)
 			ops.setText(message);
 	}
 }

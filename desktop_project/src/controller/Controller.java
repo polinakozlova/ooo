@@ -49,8 +49,8 @@ public class Controller {
 		facade.adjustPriceAfterPromo();	
 	}
 	
-	public Object[][] updateSaleTable(Object[][] tableData) {
-		return facade.updateSaleTable(tableData);
+	public Object[][] updateSaleTable(Object[][] table) {
+		return facade.updateSaleTable(table);
 	}
 	
 	public void registerObserver(Observer o) {

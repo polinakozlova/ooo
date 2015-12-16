@@ -1,7 +1,6 @@
 package domain;
 
 import java.util.Set;
-
 import domain.product.Product;
 import observer.Observer;
 
@@ -38,5 +37,5 @@ public interface IFacade {
 	
 	public void setProductSaleQuantity(String id, int quantity);
 	
-	public Object[][] updateSaleTable(Object[][] tableData);
+	public Object[][] updateSaleTable(Object[][] table);
 }

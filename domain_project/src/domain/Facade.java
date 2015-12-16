@@ -79,8 +79,8 @@ public class Facade implements IFacade {
 		return product.getPrice();
 	}	
 	
-	public Object[][] updateSaleTable(Object[][] tableData) {
-		return sale.updateSaleTable(tableData);
+	public Object[][] updateSaleTable(Object[][] table) {
+		return sale.updateSaleTable(table);
 	}
 	
 	public void registerObserver(Observer o) {

@@ -4,7 +4,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 import controller.Controller;
 
@@ -19,7 +18,9 @@ public class UI {
 		GridBagConstraints c = new GridBagConstraints();
 		frameCashier.add(pane);
 
-		ProductTable productTable = new ProductTable(controller);
+		String[] columnNames = { "Description", "Quantity", "Unit price", "Total price" };
+		Object[][] tableData = new Object[10][4];
+		JTable productTable = new JTable(tableData, columnNames);
 		JScrollPane tableContainer = new JScrollPane(productTable);
 		// c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
@@ -104,44 +105,39 @@ public class UI {
 		frameCashier.pack();
 		frameCashier.setLocationRelativeTo(null);
 		frameCashier.setResizable(false);
+		frameCashier.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameCashier.setVisible(true);
 
 		JFrame frameCustomer = new JFrame("To pay");
-		JPanel paneCust = new JPanel(new GridBagLayout());
-		GridBagConstraints cc = new GridBagConstraints();
+		JPanel paneCust = new JPanel();
+		paneCust.setSize(500, 500);
 		frameCustomer.add(paneCust);
 
 		JLabel label = new JLabel("To pay");
-		cc.fill = GridBagConstraints.HORIZONTAL;
-		cc.gridx = 0;
-		cc.gridy = 0;
-		paneCust.add(label, cc);
+		paneCust.add(label);
 
 		TextField price = new TextField(controller);
-		cc.fill = GridBagConstraints.HORIZONTAL;
-		cc.insets = new Insets(0, 5, 0, 0);
-		cc.gridx = 1;
-		cc.gridy = 0;
 		price.setEnabled(false);
-		paneCust.add(price, cc);
+		paneCust.add(price);
 
 		frameCustomer.setSize(200, 200);
 		frameCustomer.pack();
 		frameCustomer.setLocationRelativeTo(null);
-		// frameCustomer.setResizable(false);
+		frameCustomer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameCustomer.setVisible(true);
 
-		add.addActionListener(new AddButtonActionListener(productCode, quantity, productTable, controller) {
+		add.addActionListener(new AddButtonActionListener(productCode, quantity, toPay, price, productTable, tableData,
+				controller) {
 		});
 
 		confirmPromo.addActionListener(new ConfirmPromoCodeButtonActionListener(promoCode, controller) {
 		});
 
-		confirmSale.addActionListener(
-				new ConfirmSaleButtonActionListener(productCode, quantity, toPay, price, productTable, controller) {
-				});
+		confirmSale.addActionListener(new ConfirmSaleButtonActionListener(productCode, quantity, toPay, price,
+				productTable, tableData, controller) {
+		});
 
-		productTable.getModel()
-				.addTableModelListener(new ProductTableChangedListener(toPay, price, productTable, controller));
+		productTable.getModel().addTableModelListener(
+				new ProductTableChangedListener(toPay, price, productTable, tableData, controller));
 	}
 }

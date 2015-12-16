@@ -20,7 +20,7 @@ public class ConfirmSaleButtonActionListener implements ActionListener {
 	private Controller controller;
 
 	public ConfirmSaleButtonActionListener(JTextField productCode, JTextField quantity, JTextField toPay,
-			JTextField price, JTable productTable, Controller controller) {
+			JTextField price, JTable productTable, Object[][] tableData, Controller controller) {
 		this.productCode = productCode;
 		this.quantity = quantity;
 		this.toPay = toPay;
