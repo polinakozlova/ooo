@@ -1,6 +1,3 @@
 .metadata/
-**/.classpath
-.classpath
-*/.classpath
-./class
-**/.class
+*classpath
+*class
