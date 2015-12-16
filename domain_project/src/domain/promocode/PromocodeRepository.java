@@ -16,8 +16,13 @@ public class PromocodeRepository {
 	}
 
 	public Promocode getPromoCodeById(int id) {
+		System.out.println("id" + id);
+		System.out.println("in getpromobyid pcr");
 		for (Promocode pc : promoCodes) {
+			System.out.println("in forloop pcr");
+			System.out.println(pc.getId());
 			if (pc.getId() == id) {
+				System.out.println("pc found pcr");
 				return pc;
 			}
 		}
