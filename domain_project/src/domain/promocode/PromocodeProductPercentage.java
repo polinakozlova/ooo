@@ -8,10 +8,10 @@ import domain.product.Product;
  */
 
 public class PromocodeProductPercentage extends Promocode {
-	private int percentage;
+	private double percentage;
 	private Product product;
 
-	public PromocodeProductPercentage(int id, int percentage, Product product) {
+	public PromocodeProductPercentage(int id, double percentage, Product product) {
 		super(PromocodeType.PRODUCTAMOUNT, id);
 		makePromocode();
 	}
@@ -20,11 +20,11 @@ public class PromocodeProductPercentage extends Promocode {
 		this.product = product;
 	}
 
-	public void setPercentage(int percentage) {
+	public void setPercentage(double percentage) {
 		this.percentage = percentage;
 	}
 
-	public int getPercentage() {
+	public double getPercentage() {
 		return percentage;
 	}
 
@@ -35,13 +35,12 @@ public class PromocodeProductPercentage extends Promocode {
 	@Override
 	public double getReducedPrice(Sale sale) {
 		if (sale.contains(getProduct())) {
-			return sale.getTotalPrice()
+			return sale.getPrice()
 					- getProduct().getPrice() / 100 * getPercentage() * sale.getProductQuantity(getProduct());
 		}
-		return sale.getTotalPrice();
+		return sale.getPrice();
 	}
 
-	@Override
 	public void makePromocode() {
 		setProduct(product);
 		setPercentage(percentage);

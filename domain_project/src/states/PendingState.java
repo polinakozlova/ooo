@@ -1,6 +1,9 @@
 package states;
 import domain.*;
 
+/**
+ * @author Yannick Crabbé
+ */
 public class PendingState implements State {
 	private Sale sale;
 	

@@ -30,13 +30,13 @@ public class PromocodeSaleAmount extends Promocode {
 
 	@Override
 	public double getReducedPrice(Sale sale) {
-		if (sale.getTotalPrice() >= getSaleAmountNeeded()) {
-			return sale.getTotalPrice() - getAmount();
+		if (sale.getPrice() >= getSaleAmountNeeded()) {
+			return sale.getPrice() - getAmount();
 		}
-		return sale.getTotalPrice();
+		return sale.getPrice();
 	}
 
-	@Override
+
 	public void makePromocode() {
 		setSaleAmountNeeded(saleAmountNeeded);
 		setAmount(amount);

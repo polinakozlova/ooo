@@ -12,6 +12,10 @@ public class Controller {
 	public Controller() {
 		this.facade = new Facade();
 	}
+	
+	public void setReducedPrice() {
+		
+	}
 
 	public void addProductToSale(String id, String quantity) {
 		facade.addProductToSale(id, quantity);
@@ -44,10 +48,6 @@ public class Controller {
 	public void emptyCurrentSale() {
 		facade.emptyCurrentSale();
 	}
-
-	public void adjustPriceAfterPromo() {
-		facade.adjustPriceAfterPromo();	
-	}
 	
 	public Object[][] updateSaleTable(Object[][] table) {
 		return facade.updateSaleTable(table);
@@ -55,5 +55,9 @@ public class Controller {
 	
 	public void registerObserver(Observer o) {
 		facade.registerObserver(o);
+	}
+	
+	public double getReducedPrice(String promocode){
+		return facade.getReducedPrice(promocode);
 	}
 }

@@ -47,7 +47,7 @@ public class PromocodeDB {
 				PromocodeType type = PromocodeType.valueOf(result.getString("type"));
 				double amount = Double.parseDouble(result.getString("amount"));
 				Product product = productDB.getProductById(result.getString("productId"));
-				int percentage = Integer.parseInt(result.getString("percentage"));
+				double percentage = Double.parseDouble(result.getString("percentage"));
 				double saleAmountNeeded = Double.parseDouble(result.getString("saleAmountNeeded"));	
 				Promocode promocode = null;
 				try {

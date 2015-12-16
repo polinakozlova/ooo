@@ -8,7 +8,7 @@ import javax.swing.*;
 import controller.Controller;
 
 /**
- * @author Yannick Crabbe
+ * @author Yannick Crabbe, Polina Kozlova
  */
 public class UI {
 
@@ -126,15 +126,15 @@ public class UI {
 		frameCustomer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameCustomer.setVisible(true);
 
-		add.addActionListener(new AddButtonActionListener(productCode, quantity, toPay, price, productTable, tableData,
-				controller) {
-		});
+		add.addActionListener(
+				new AddButtonActionListener(productCode, quantity, toPay, price, productTable, tableData, controller) {
+				});
 
-		confirmPromo.addActionListener(new ConfirmPromoCodeButtonActionListener(promoCode, controller) {
+		confirmPromo.addActionListener(new ConfirmPromoCodeButtonActionListener(promoCode, controller, toPay, price) {
 		});
 
 		confirmSale.addActionListener(new ConfirmSaleButtonActionListener(productCode, quantity, toPay, price,
-				productTable, tableData, controller) {
+				promoCode, productTable, tableData, controller) {
 		});
 
 		productTable.getModel().addTableModelListener(

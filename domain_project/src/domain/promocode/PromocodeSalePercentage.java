@@ -6,27 +6,32 @@ import domain.Sale;
  */
 
 public class PromocodeSalePercentage extends Promocode {
-	private int percentage;
+	private double percentage;
 
-	public PromocodeSalePercentage(int id, int percentage) {
+	public PromocodeSalePercentage(int id, double percentage) {
 		super(PromocodeType.SALEPERCENTAGE, id);
+		makePromocode(percentage);
 	}
 
-	private void setPercentage(int percentage) {
+	private void setPercentage(double percentage) {
 		this.percentage = percentage;
 	}
 
-	public int getPercentage() {
+	public double getPercentage() {
 		return this.percentage;
 	}
 
 	@Override
 	public double getReducedPrice(Sale sale) {
-		return sale.getTotalPrice() - sale.getTotalPrice() / 100 * getPercentage();
+		System.out.println(sale.getPrice());
+		System.out.println(this.getPercentage());
+		System.out.println(sale.getPrice() - sale.getPrice() * (getPercentage() / 100));
+		return sale.getPrice() - sale.getPrice() * (this.getPercentage() / 100);
 	}
 
-	@Override
-	public void makePromocode() {
-		setPercentage(percentage);
+	public void makePromocode(double percentage) {
+		System.out.println("percentage: " + percentage);
+		this.setPercentage(percentage);
 	}
+
 }
