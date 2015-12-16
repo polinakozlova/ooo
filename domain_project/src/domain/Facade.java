@@ -5,8 +5,12 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Set;
 
 import domain.product.Product;
+import domain.promocode.Promocode;
 import observer.Observer;
 
+/**
+ * @author Yannick Crabbé
+ */
 public class Facade implements IFacade {
 	private Sale sale;
 	
@@ -27,7 +31,7 @@ public class Facade implements IFacade {
 	}
 	
 	public double getTotalPrice() {
-		return sale.getTotalPrice();
+		return sale.getPrice();
 	}
 	
 	public Set<Product> getCurrentSale() {
@@ -58,17 +62,12 @@ public class Facade implements IFacade {
 		return sale.getProductQuantity(product);
 	}
 	
-	public double getReducedPrice(Sale sale){
-		return sale.getReducedPrice();
+	public double getReducedPrice(String promocode){
+		return sale.getReducedPrice(promocode);
 	}
 	
 	public void emptyCurrentSale() {
 		sale.emptyCurrentSale();
-	}
-
-	public void adjustPriceAfterPromo() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	public String getProductDescription(Product product){
@@ -85,5 +84,14 @@ public class Facade implements IFacade {
 	
 	public void registerObserver(Observer o) {
 		sale.registerObserver(o);
+	}
+
+	public Promocode getPromocodeById(String promocodeString) {
+		return sale.getPromocodeById(promocodeString);
+	}
+
+	public void setReducedPrice() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -2,6 +2,8 @@ package ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -15,16 +17,18 @@ public class ConfirmSaleButtonActionListener implements ActionListener {
 	private JTextField quantity;
 	private JTextField toPay;
 	private JTextField price;
+	private JTextField promoCode;
 	private JTable productTable;
 	private Object[][] tableData;
 	private Controller controller;
 
 	public ConfirmSaleButtonActionListener(JTextField productCode, JTextField quantity, JTextField toPay,
-			JTextField price, JTable productTable, Object[][] tableData, Controller controller) {
+			JTextField price, JTextField promoCode, JTable productTable, Object[][] tableData, Controller controller) {
 		this.productCode = productCode;
 		this.quantity = quantity;
 		this.toPay = toPay;
 		this.price = price;
+		this.promoCode = promoCode;
 		this.productTable = productTable;
 		this.tableData = tableData;
 		this.controller = controller;
@@ -40,7 +44,7 @@ public class ConfirmSaleButtonActionListener implements ActionListener {
 					"The amount paid should be " + Double.parseDouble(price.getText()) + " or higher.", "Invalid input",
 					JOptionPane.ERROR_MESSAGE);
 		} else {
-			for (int i = 0; i < 420; i++) {
+			for (int i = 0; i < 10; i++) {
 				tableData[i][0] = "";
 				tableData[i][1] = "";
 				tableData[i][2] = "";
@@ -48,12 +52,14 @@ public class ConfirmSaleButtonActionListener implements ActionListener {
 			}
 			productTable.repaint();
 			controller.emptyCurrentSale();
+			promoCode.setText("");
 			price.setText("0.0");
 			toPay.setText("0.0");
 			quantity.setText("1");
 			productCode.setText("");
 			JOptionPane.showMessageDialog(null, "Price: " + salePrice + "\n" + "Amount paid by customer: "
 					+ amountPaid + "\n" + "Change: " + change, null, JOptionPane.INFORMATION_MESSAGE);
+			((JComponent) e.getSource()).setEnabled(false);
 		}
 	}
 }

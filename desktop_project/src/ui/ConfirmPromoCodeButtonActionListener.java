@@ -13,22 +13,21 @@ import controller.Controller;
 public class ConfirmPromoCodeButtonActionListener implements ActionListener {
 	private JTextField promoCode;
 	private Controller controller;
+	private TextField toPay;
+	private TextField price;
 	
-	public ConfirmPromoCodeButtonActionListener(JTextField promoCode, Controller controller) {
+	public ConfirmPromoCodeButtonActionListener(JTextField promoCode, Controller controller, TextField  toPay, TextField price) {
 		this.promoCode = promoCode;
 		this.controller = controller;
+		this.toPay = toPay;
+		this.price = price;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		/**
-		if (controller.checkValidPromoCode(promoCode.getText())) {
-			controller.adjustPriceAfterPromo();
-			// recalculate price
-			// TODO
-		}
-		*/
-		
+		String promoCodeString = promoCode.getText();
+		double newPrice = controller.getReducedPrice(promoCodeString);
+		price.setText(String.valueOf(newPrice));
+		toPay.setText(String.valueOf(newPrice));
 	}
-
 }

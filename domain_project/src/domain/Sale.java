@@ -17,6 +17,9 @@ import observer.Observable;
 import observer.Observer;
 import states.*;
 
+/**
+ * @author Yannick Crabb�, Polina Kozlova
+ */
 public class Sale implements Observable {
 	private ProductDB productDB;
 	private PromocodeDB promoCodeDB;
@@ -31,6 +34,7 @@ public class Sale implements Observable {
 	private double price;
 	private Promocode promocode;
 
+
 	public Sale() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		this.currentSale = new HashMap<Product, Integer>();
 		try {
@@ -44,38 +48,43 @@ public class Sale implements Observable {
 		this.cancelledState = new CancelledState(this);
 		this.paidState = new PaidState(this);
 		this.setState(pendingState);
-		this.price = this.getTotalPrice();
+		this.setPrice(0);
 		this.observers = new ArrayList<Observer>();
 		setPromocode(promocode);
 	}
-
-	private void setPromocode(Promocode pc) {
+	
+	private void setPromocode(Promocode pc){
 		this.promocode = pc;
 	}
-
-	public Promocode getPromocode() {
+	
+	public Promocode getPromocode(){
 		return this.promocode;
 	}
 
 	public boolean contains(Product product) {
 		return currentSale.containsKey(product);
 	}
-
+	
 	public State getState() {
 		return this.state;
 	}
-
+	
 	public void setState(State state) {
 		this.state = state;
 	}
-
+	
+	public void setPrice(double price){
+		this.price = price;
+	}
+	
 	public void addProductToSale(String code, String quantity) {
 		Product product = productDB.getProductById(code);
 		if (this.currentSale.get(product) == null)
 			this.currentSale.put(product, Integer.parseInt(quantity));
 		else
 			this.currentSale.put(product, (this.currentSale.get(product) + Integer.parseInt(quantity)));
-		this.notifyObservers(String.valueOf(this.getTotalPrice()));
+		this.setPrice((this.getPrice() + product.getPrice() * Integer.parseInt(quantity)));
+		this.notifyObservers(String.valueOf(this.getPrice()));
 	}
 
 	public void setProductSaleQuantity(String code, int quantity) {
@@ -86,17 +95,13 @@ public class Sale implements Observable {
 	public void removeProductFromSale(String code) {
 		Product product = productDB.getProductById(code);
 		this.currentSale.remove(product);
-		this.notifyObservers(String.valueOf(this.getTotalPrice()));
+		this.notifyObservers(String.valueOf(this.getPrice()));
 	}
 
-	public double getTotalPrice() {
-		double price = 0;
-		for (Product pr : currentSale.keySet()) {
-			price += pr.getPrice() * currentSale.get(pr);
-		}
-		return price;
+	public double getPrice() {
+		return this.price;
 	}
-
+	
 	public String getIDByDescription(String description) {
 		for (Product pr : currentSale.keySet()) {
 			if (pr.getDescription().equals(description))
@@ -104,16 +109,16 @@ public class Sale implements Observable {
 		}
 		return null;
 	}
-
+	
 	public double paySale(double amountPaid) {
 		this.setState(paidState);
-		return amountPaid - this.getTotalPrice();
+		return amountPaid - this.getPrice();
 	}
-
+	
 	public void emptyCurrentSale() {
-		this.setState(cancelledState);
+		this.setState(cancelledState);	
 	}
-
+	
 	public double getProductPrice(String id) {
 		return productRepo.getProductById(id).getPrice();
 	}
@@ -130,13 +135,18 @@ public class Sale implements Observable {
 		return this.currentSale.get(product);
 	}
 
-	public double getReducedPrice() {
-		if (this.promocode != null) {
-			return promocode.getReducedPrice(this);
-		}
-		return this.getTotalPrice();
-	}
 
+	public double getReducedPrice(String promocode) {
+		Promocode pc = this.getPromocodeById(promocode);
+		double reducedPrice = pc.getReducedPrice(this);
+		return reducedPrice;
+	}
+	
+	public Promocode getPromocodeById(String promocodeString){
+		Promocode pc = pcr.getPromoCodeById(Integer.parseInt(promocodeString));
+		return pc;
+	}
+	
 	public Object[][] updateSaleTable(Object[][] tableData) {
 		int i = 0;
 		for (Product pr : this.getCurrentSale()) {
@@ -165,8 +175,8 @@ public class Sale implements Observable {
 	}
 
 	public void notifyObservers(String message) {
-		// message = String.valueOf(this.getTotalPrice());
-		for (Observer ops : observers)
+		//message = String.valueOf(this.getTotalPrice());
+		for (Observer ops : observers) 
 			ops.setText(message);
 	}
 }

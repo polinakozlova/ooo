@@ -2,6 +2,9 @@ package states;
 
 import domain.Sale;
 
+/**
+ * @author Yannick Crabbé
+ */
 public class CancelledState implements State {
 	private Sale sale;
 

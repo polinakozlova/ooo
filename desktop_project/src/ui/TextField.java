@@ -4,6 +4,9 @@ import javax.swing.JTextField;
 import controller.Controller;
 import observer.Observer;
 
+/**
+ * @author Yannick Crabbé
+ */
 @SuppressWarnings("serial")
 public class TextField extends JTextField implements Observer {
 	private Controller controller;

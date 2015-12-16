@@ -2,14 +2,18 @@ package domain;
 
 import java.util.Set;
 import domain.product.Product;
+import domain.promocode.Promocode;
 import observer.Observer;
 
+/**
+ * @author Yannick Crabbé
+ */
 public interface IFacade {
 	public void addProductToSale(String id, String quantity);
-
-	public void adjustPriceAfterPromo();
 	
-	public double getReducedPrice(Sale sale);
+	public double getReducedPrice(String promocode);
+	
+	public void setReducedPrice();
 	
 	public void emptyCurrentSale();
 	
@@ -38,4 +42,5 @@ public interface IFacade {
 	public void setProductSaleQuantity(String id, int quantity);
 	
 	public Object[][] updateSaleTable(Object[][] table);
+	
 }

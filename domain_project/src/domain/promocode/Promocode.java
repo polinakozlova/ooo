@@ -32,5 +32,5 @@ public abstract class Promocode {
 	
 	public abstract double getReducedPrice(Sale sale);
 	
-	public abstract void makePromocode();
+
 }

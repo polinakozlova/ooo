@@ -1,5 +1,8 @@
 package states;
 
+/**
+ * @author Yannick Crabbé
+ */
 public interface State {
 	
 	public void delete(String code);

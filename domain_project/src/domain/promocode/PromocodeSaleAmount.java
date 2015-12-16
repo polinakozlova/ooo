@@ -10,6 +10,7 @@ public class PromocodeSaleAmount extends Promocode {
 
 	public PromocodeSaleAmount(int id, double saleAmountNeeded, double amount) {
 		super(PromocodeType.SALEAMOUNT, id);
+		makePromocode(saleAmountNeeded, amount);
 	}
 
 	private void setAmount(double amount) {
@@ -30,14 +31,14 @@ public class PromocodeSaleAmount extends Promocode {
 
 	@Override
 	public double getReducedPrice(Sale sale) {
-		if (sale.getTotalPrice() >= getSaleAmountNeeded()) {
-			return sale.getTotalPrice() - getAmount();
+		if (sale.getPrice() >= getSaleAmountNeeded()) {
+			return sale.getPrice() - getAmount();
 		}
-		return sale.getTotalPrice();
+		return sale.getPrice();
 	}
 
-	@Override
-	public void makePromocode() {
+
+	public void makePromocode(double saleAmpuntNeeded, double amount) {
 		setSaleAmountNeeded(saleAmountNeeded);
 		setAmount(amount);
 	}

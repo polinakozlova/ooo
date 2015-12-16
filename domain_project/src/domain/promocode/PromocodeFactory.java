@@ -6,11 +6,11 @@ import domain.product.Product;
  */
 
 public class PromocodeFactory {
-	public static Promocode makePromocode(PromocodeType type, int id, double amount, Product product, int percentage, double saleAmountNeeded) throws Exception{
+	public static Promocode makePromocode(PromocodeType type, int id, double amount, Product product, double percentage, double saleAmountNeeded) throws Exception{
 		Promocode promocode = null;
 		switch(type){
 		case PRODUCTAMOUNT:
-			promocode = new PromocodeProductAmount(id, saleAmountNeeded, product);
+			promocode = new PromocodeProductAmount(id, amount, product);
 			break;
 		case PRODUCTPERCENTAGE:
 			promocode = new PromocodeProductPercentage(id, percentage, product);
