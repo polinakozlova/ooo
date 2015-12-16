@@ -34,24 +34,13 @@ public class PromocodeProductAmount extends Promocode {
 	@Override
 	public double getReducedPrice(Sale sale) {
 		if (sale.contains(product)) {
-<<<<<<< HEAD
 			return sale.getPrice() - getAmount() * sale.getProductQuantity(product);
-=======
-			System.out.println("in if");
-			double newPrice = sale.getPrice() - getAmount() * sale.getProductQuantity(product);
-			System.out.println(newPrice);
-			return newPrice;
->>>>>>> 8c1d10dea5df1e877ef32b9df4beeec59f790b23
 		}
 		return sale.getPrice();
 	}
 	
 
-<<<<<<< HEAD
 	public void makePromocode(double amount, Product product) {
-=======
-	public void makePromocode() {
->>>>>>> 8c1d10dea5df1e877ef32b9df4beeec59f790b23
 		setAmount(amount);
 		setProduct(product);
 	}

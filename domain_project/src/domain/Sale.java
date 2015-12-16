@@ -18,11 +18,8 @@ import observer.Observer;
 import states.*;
 
 /**
-<<<<<<< HEAD
+
  * @author Yannick Crabbï¿½, Polina Kozlova
-=======
- * @author Yannick Crabbé, Polina Kozlova
->>>>>>> 8c1d10dea5df1e877ef32b9df4beeec59f790b23
  */
 public class Sale implements Observable {
 	private ProductDB productDB;
@@ -141,10 +138,6 @@ public class Sale implements Observable {
 
 
 	public double getReducedPrice(String promocode) {
-<<<<<<< HEAD
-=======
-		System.out.println(promocode);
->>>>>>> 8c1d10dea5df1e877ef32b9df4beeec59f790b23
 		Promocode pc = this.getPromocodeById(promocode);
 		double reducedPrice = pc.getReducedPrice(this);
 		return reducedPrice;

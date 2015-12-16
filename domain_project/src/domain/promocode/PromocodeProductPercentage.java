@@ -42,11 +42,8 @@ public class PromocodeProductPercentage extends Promocode {
 		return sale.getPrice();
 	}
 
-<<<<<<< HEAD
 	public void makePromocode(double percentage, Product product) {
-=======
-	public void makePromocode() {
->>>>>>> 8c1d10dea5df1e877ef32b9df4beeec59f790b23
+
 		setProduct(product);
 		setPercentage(percentage);
 	}
