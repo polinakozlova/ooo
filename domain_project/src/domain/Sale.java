@@ -22,6 +22,7 @@ import states.*;
  * @author Yannick Crabb�, Polina Kozlova
  */
 public class Sale implements Observable {
+	private double price;
 	private ProductDB productDB;
 	private PromocodeDB promoCodeDB;
 	private ProductRepository productRepo;
@@ -32,7 +33,6 @@ public class Sale implements Observable {
 	private State pendingState;
 	private State cancelledState;
 	private State paidState;
-	private double price;
 	private Promocode promocode;
 
 
@@ -49,9 +49,9 @@ public class Sale implements Observable {
 		this.cancelledState = new CancelledState(this);
 		this.paidState = new PaidState(this);
 		this.setState(pendingState);
-		this.setPrice(0);
+		this.price = 0;
 		this.observers = new ArrayList<Observer>();
-		setPromocode(promocode);
+		this.setPromocode(promocode);
 	}
 	
 	private void setPromocode(Promocode pc){
@@ -76,6 +76,7 @@ public class Sale implements Observable {
 	
 	public void setPrice(double price){
 		this.price = price;
+		this.notifyObservers(String.valueOf(price));
 	}
 	
 	public void addProductToSale(String code, String quantity) {
@@ -85,18 +86,21 @@ public class Sale implements Observable {
 		else
 			this.currentSale.put(product, (this.currentSale.get(product) + Integer.parseInt(quantity)));
 		this.setPrice((this.getPrice() + product.getPrice() * Integer.parseInt(quantity)));
-		this.notifyObservers(String.valueOf(this.getPrice()));
 	}
 
-	public void setProductSaleQuantity(String code, int quantity) {
-		Product product = productDB.getProductById(code);
+	public void setProductSaleQuantity(String id, int quantity) {
+		Product product = productDB.getProductById(id);
+		int oldQuantity = this.getProductQuantity(product);
 		this.currentSale.put(product, quantity);
+		this.setPrice(this.getPrice() + ((quantity - oldQuantity) * product.getPrice()));
 	}
 
 	public void removeProductFromSale(String code) {
 		Product product = productDB.getProductById(code);
+		int quantity = this.getProductQuantity(product);
+		double price = product.getPrice();
 		this.currentSale.remove(product);
-		this.notifyObservers(String.valueOf(this.getPrice()));
+		this.setPrice(this.getPrice() - (quantity * price));
 	}
 
 	public double getPrice() {
@@ -135,7 +139,6 @@ public class Sale implements Observable {
 	public int getProductQuantity(Product product) {
 		return this.currentSale.get(product);
 	}
-
 
 	public double getReducedPrice(String promocode) {
 		Promocode pc = this.getPromocodeById(promocode);
@@ -176,7 +179,7 @@ public class Sale implements Observable {
 	}
 
 	public void notifyObservers(String message) {
-		//message = String.valueOf(this.getTotalPrice());
+		message = String.valueOf(this.getPrice());
 		for (Observer ops : observers) 
 			ops.setText(message);
 	}

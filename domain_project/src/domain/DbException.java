@@ -3,6 +3,7 @@ package domain;
 /**
  * @author Polina Kozlova
  */
+@SuppressWarnings("serial")
 public class DbException extends RuntimeException{
 
 public DbException(){

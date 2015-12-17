@@ -3,6 +3,7 @@ package ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import controller.Controller;
@@ -13,21 +14,19 @@ import controller.Controller;
 public class ConfirmPromoCodeButtonActionListener implements ActionListener {
 	private JTextField promoCode;
 	private Controller controller;
-	private TextField toPay;
-	private TextField price;
 	
-	public ConfirmPromoCodeButtonActionListener(JTextField promoCode, Controller controller, TextField  toPay, TextField price) {
+	public ConfirmPromoCodeButtonActionListener(JTextField promoCode, Controller controller) {
 		this.promoCode = promoCode;
 		this.controller = controller;
-		this.toPay = toPay;
-		this.price = price;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String promoCodeString = promoCode.getText();
 		double newPrice = controller.getReducedPrice(promoCodeString);
-		price.setText(String.valueOf(newPrice));
-		toPay.setText(String.valueOf(newPrice));
+		if (newPrice >= 0)
+			controller.setSalePrice(newPrice);
+		else 
+			JOptionPane.showMessageDialog(null, "You can't lower the price any more!", "Error", JOptionPane.ERROR_MESSAGE);
 	}
 }

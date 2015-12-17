@@ -2,7 +2,6 @@ package ui;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import controller.Controller;
@@ -11,36 +10,30 @@ import controller.Controller;
  * @author Yannick Crabbe
  */
 public class ProductTableChangedListener implements TableModelListener {
-	private TextField toPay;
-	private TextField price;
 	private JTable productTable;
 	private Object[][] tableData;
 	private Controller controller;
 
-	public ProductTableChangedListener(TextField toPay, TextField price,
-			JTable productTable, Object[][] tableData, Controller controller) {
-		this.toPay = toPay;
-		this.price = price;
+	public ProductTableChangedListener(JTable productTable, Object[][] tableData,
+			Controller controller) {
 		this.productTable = productTable;
 		this.tableData = tableData;
 		this.controller = controller;
 	}
 
 	public void tableChanged(TableModelEvent e) {
+		String productID = controller.getIDByDescription(tableData[e.getFirstRow()][0].toString());
+		int newQuantity = Integer.parseInt(tableData[e.getFirstRow()][1].toString());
 		try {
-			if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) == 0) {
-				controller.removeProductFromSale(
-						controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()));
-			} else if (Integer.parseInt(tableData[e.getFirstRow()][1].toString()) < 0) {
+			if (newQuantity == 0) {
+				controller.removeProductFromSale(productID);
+			} else if (newQuantity < 0) {
 				JOptionPane.showMessageDialog(null, "Quantity should be 0 or higher.", "Invalid input",
 						JOptionPane.ERROR_MESSAGE);
 			} else {
-				controller.setProductSaleQuantity(
-						controller.getIDByDescription(tableData[e.getFirstRow()][0].toString()),
-						Integer.parseInt(tableData[e.getFirstRow()][1].toString()));
+				controller.setProductSaleQuantity(productID, newQuantity);
 			}
-			toPay.update();
-			price.update();
+
 			controller.updateSaleTable(tableData);
 			productTable.repaint();
 		} catch (NumberFormatException NumberFormatException) {

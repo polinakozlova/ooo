@@ -24,7 +24,6 @@ public class PromocodeProductAmount extends Promocode {
 
 	public void setProduct(Product product) {
 		this.product = product;
-		System.out.println(product.getId());
 	}
 
 	public Product getProduct() {
