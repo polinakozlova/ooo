@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="ui.TextField" project="desktop_project" 
     file="/desktop_project/src/ui/TextField.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="122" x="1796" y="513"/>    
+    <position height="99" width="122" x="1747" y="333"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="ui.ConfirmSaleButtonActionListener" project="desktop_project" 
     file="/desktop_project/src/ui/ConfirmSaleButtonActionListener.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="568" x="1167" y="513"/>    
+    <position height="207" width="518" x="42" y="333"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="ui.ProductTableChangedListener" project="desktop_project" 
     file="/desktop_project/src/ui/ProductTableChangedListener.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="303" x="824" y="513"/>    
+    <position height="135" width="303" x="963" y="333"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="main.Launcher" project="desktop_project" 
     file="/desktop_project/src/main/Launcher.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="1167" y="37"/>    
+    <position height="99" width="113" x="1306" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="ui.UI" project="desktop_project" file="/desktop_project/src/ui/UI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="137" x="1167" y="302"/>    
+    <position height="117" width="159" x="1306" y="176"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="ui.AddButtonActionListener" project="desktop_project" 
     file="/desktop_project/src/ui/AddButtonActionListener.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="380" x="41" y="513"/>    
+    <position height="171" width="380" x="1306" y="333"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="ui.ConfirmPromoCodeButtonActionListener" project="desktop_project" 
     file="/desktop_project/src/ui/ConfirmPromoCodeButtonActionListener.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="323" x="461" y="513"/>    
+    <position height="117" width="323" x="600" y="333"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="controller.Controller" project="desktop_project" 
     file="/desktop_project/src/controller/Controller.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="212" x="1167" y="1012"/>    
+    <position height="297" width="212" x="1306" y="580"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="domain.Facade" project="domain_project" 
     file="/domain_project/src/domain/Facade.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="405" width="212" x="1167" y="1349"/>    
+    <position height="405" width="212" x="1306" y="917"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <interface id="10" language="java" name="domain.IFacade" project="domain_project" 
     file="/domain_project/src/domain/IFacade.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="351" width="212" x="1186" y="1794"/>    
+    <position height="351" width="212" x="1356" y="1362"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,614 +93,642 @@
   </interface>  
   <class id="11" language="java" name="domain.Sale" project="domain_project" file="/domain_project/src/domain/Sale.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="531" width="218" x="928" y="1794"/>    
+    <position height="531" width="218" x="1098" y="1362"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="domain.DbException" project="domain_project" 
-    file="/domain_project/src/domain/DbException.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="177" x="1763" y="302"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="13" language="java" name="domain.person.PersonRepository" project="domain_project" 
-    file="/domain_project/src/domain/person/PersonRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="127" x="2001" y="302"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="14" language="java" name="domain.person.PersonDB" project="domain_project" 
-    file="/domain_project/src/domain/person/PersonDB.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="163" x="1946" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="15" language="java" name="domain.person.Person" project="domain_project" 
-    file="/domain_project/src/domain/person/Person.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="459" width="220" x="2001" y="513"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="16" language="java" name="domain.person.PersonService" project="domain_project" 
-    file="/domain_project/src/domain/person/PersonService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="224" x="2149" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="17" language="java" name="domain.product.ProductService" project="domain_project" 
+  <class id="12" language="java" name="domain.product.ProductService" project="domain_project" 
     file="/domain_project/src/domain/product/ProductService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="230" x="949" y="2859"/>    
+    <position height="171" width="230" x="1639" y="2427"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="domain.product.Product" project="domain_project" 
+  <class id="13" language="java" name="domain.product.Product" project="domain_project" 
     file="/domain_project/src/domain/product/Product.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="165" x="1137" y="3353"/>    
+    <position height="297" width="165" x="838" y="2921"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="domain.product.ProductRepository" project="domain_project" 
+  <class id="14" language="java" name="domain.product.ProductRepository" project="domain_project" 
     file="/domain_project/src/domain/product/ProductRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="186" x="909" y="3088"/>    
+    <position height="207" width="186" x="1639" y="2656"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="domain.product.ProductDB" project="domain_project" 
+  <class id="15" language="java" name="domain.product.ProductDB" project="domain_project" 
     file="/domain_project/src/domain/product/ProductDB.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="201" x="949" y="2576"/>    
+    <position height="243" width="201" x="1098" y="2144"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="domain.promocode.PromocodeFactory" project="domain_project" 
+  <class id="16" language="java" name="domain.promocode.PromocodeFactory" project="domain_project" 
     file="/domain_project/src/domain/promocode/PromocodeFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="406" x="1308" y="2576"/>    
+    <position height="99" width="406" x="652" y="2144"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="22" language="java" name="domain.promocode.PromocodeType" project="domain_project" 
+  <enumeration id="17" language="java" name="domain.promocode.PromocodeType" project="domain_project" 
     file="/domain_project/src/domain/promocode/PromocodeType.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="223" x="2021" y="3088"/>    
+    <position height="153" width="223" x="1376" y="2656"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="23" language="java" name="domain.promocode.PromocodeSalePercentage" project="domain_project" 
+  <class id="18" language="java" name="domain.promocode.PromocodeSalePercentage" project="domain_project" 
     file="/domain_project/src/domain/promocode/PromocodeSalePercentage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="210" x="1771" y="3088"/>    
+    <position height="171" width="210" x="1126" y="2656"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="domain.promocode.PromocodeProductAmount" project="domain_project" 
+  <class id="19" language="java" name="domain.promocode.PromocodeProductAmount" project="domain_project" 
     file="/domain_project/src/domain/promocode/PromocodeProductAmount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="248" x="1483" y="3088"/>    
+    <position height="207" width="248" x="838" y="2656"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="domain.promocode.PromocodeDB" project="domain_project" 
+  <class id="20" language="java" name="domain.promocode.PromocodeDB" project="domain_project" 
     file="/domain_project/src/domain/promocode/PromocodeDB.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="183" x="970" y="2365"/>    
+    <position height="171" width="183" x="894" y="1933"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="domain.promocode.Promocode" project="domain_project" 
+  <class id="21" language="java" name="domain.promocode.Promocode" project="domain_project" 
     file="/domain_project/src/domain/promocode/Promocode.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="179" x="1735" y="2859"/>    
+    <position height="189" width="179" x="1126" y="2427"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="domain.promocode.PromocodeProductPercentage" project="domain_project" 
+  <class id="22" language="java" name="domain.promocode.PromocodeProductPercentage" project="domain_project" 
     file="/domain_project/src/domain/promocode/PromocodeProductPercentage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="266" x="1177" y="3088"/>    
+    <position height="207" width="266" x="532" y="2656"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="domain.promocode.PromocodeRepository" project="domain_project" 
+  <class id="23" language="java" name="domain.promocode.PromocodeRepository" project="domain_project" 
     file="/domain_project/src/domain/promocode/PromocodeRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="193" x="1542" y="2365"/>    
+    <position height="117" width="193" x="1364" y="1933"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="29" language="java" name="domain.promocode.PromocodeSaleAmount" project="domain_project" 
+  <class id="24" language="java" name="domain.promocode.PromocodeSaleAmount" project="domain_project" 
     file="/domain_project/src/domain/promocode/PromocodeSaleAmount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="227" x="2284" y="3088"/>    
+    <position height="225" width="227" x="265" y="2656"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="30" language="java" name="observer.Observable" project="domain_project" 
+  <interface id="25" language="java" name="observer.Observable" project="domain_project" 
     file="/domain_project/src/observer/Observable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="186" x="1193" y="2365"/>    
+    <position height="117" width="186" x="1138" y="1933"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="31" language="java" name="states.State" project="domain_project" 
+  <interface id="26" language="java" name="states.State" project="domain_project" 
     file="/domain_project/src/states/State.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="134" x="754" y="2365"/>    
+    <position height="135" width="134" x="720" y="1933"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="32" language="java" name="observer.Observer" project="domain_project" 
+  <interface id="27" language="java" name="observer.Observer" project="domain_project" 
     file="/domain_project/src/observer/Observer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="120" x="1796" y="2365"/>    
+    <position height="99" width="120" x="1747" y="1933"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="33" language="java" name="states.CancelledState" project="domain_project" 
+  <class id="28" language="java" name="states.CancelledState" project="domain_project" 
     file="/domain_project/src/states/CancelledState.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="134" x="754" y="1349"/>    
+    <position height="153" width="134" x="1068" y="917"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="34" language="java" name="states.PendingState" project="domain_project" 
+  <class id="29" language="java" name="states.PendingState" project="domain_project" 
     file="/domain_project/src/states/PendingState.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="134" x="1419" y="1349"/>    
+    <position height="153" width="134" x="894" y="917"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="35" language="java" name="states.PaidState" project="domain_project" 
+  <class id="30" language="java" name="states.PaidState" project="domain_project" 
     file="/domain_project/src/states/PaidState.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="134" x="928" y="1349"/>    
+    <position height="153" width="134" x="720" y="917"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="36">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="13"/>  
+  <association id="31">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="32" name="paidState">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="34">    
+    <bendpoint x="754" y="2427"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="19"/>  
   </dependency>  
-  <realization id="37">    
-    <bendpoint x="1428" y="1794"/>    
-    <end type="SOURCE" refId="34"/>    
-    <end type="TARGET" refId="31"/>  
+  <realization id="35">    
+    <bendpoint x="903" y="1362"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="26"/>  
   </realization>  
-  <dependency id="38">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="26"/>  
-  </dependency>  
-  <association id="39">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="40" name="sale"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="42">    
-    <bendpoint x="1209" y="2859"/>    
-    <bendpoint x="1146" y="3088"/>    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="18"/>  
-  </dependency>  
-  <generalization id="43">    
-    <end type="SOURCE" refId="29"/>    
-    <end type="TARGET" refId="26"/>  
-  </generalization>  
-  <realization id="44">    
-    <bendpoint x="850" y="1794"/>    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="31"/>  
-  </realization>  
-  <generalization id="45">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="26"/>  
-  </generalization>  
-  <association id="46">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="47" name="controller"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="49">    
-    <bendpoint x="1150" y="508"/>    
-    <bendpoint x="1157" y="767"/>    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <association id="50">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="51" name="promoCodeDB"/>      
-      <multiplicity id="52" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="53">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <association id="54">    
-    <bendpoint x="1125" y="3088"/>    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="55" name="producten"/>      
-      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="57">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="58" name="controller"/>      
-      <multiplicity id="59" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="61" name="paidState"/>      
-      <multiplicity id="62" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
-    <bendpoint x="918" y="2365"/>    
-    <bendpoint x="918" y="2576"/>    
-    <bendpoint x="918" y="2859"/>    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="64" name="productRepo"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="66">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="67" name="controller"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="69">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="70" name="pendingState"/>      
-      <multiplicity id="71" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="72">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="73" name="product"/>      
-      <multiplicity id="74" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="75">    
-    <bendpoint x="1252" y="2859"/>    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="27"/>  
-  </dependency>  
-  <association id="76">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="77" name="personRepository"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="79">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="26"/>  
-  </generalization>  
-  <realization id="80">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="30"/>  
-  </realization>  
-  <association id="81">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="82" name="persons"/>      
-      <multiplicity id="83" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="84">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="85" name="productRepository"/>      
-      <multiplicity id="86" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="87">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="88" name="observers"/>      
-      <multiplicity id="89" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="32" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="90">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <association id="91">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="92" name="cancelledState"/>      
-      <multiplicity id="93" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="94">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="95" name="productDB"/>      
-      <multiplicity id="96" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="97">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="98" name="product"/>      
-      <multiplicity id="99" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="100">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="101" name="type"/>      
-      <multiplicity id="102" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="103">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <dependency id="104">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <association id="105">    
+  <association id="36">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="106" name="controller"/>      
-      <multiplicity id="107" minimum="0" maximum="1"/>    
+      <attribute id="37" name="controller">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="108">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <association id="109">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="110" name="pcr"/>      
-      <multiplicity id="111" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="28" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="112">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="113" name="state"/>      
-      <multiplicity id="114" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="115">    
-    <bendpoint x="1405" y="2859"/>    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="24"/>  
-  </dependency>  
-  <dependency id="116">    
-    <end type="SOURCE" refId="25"/>    
+  <generalization id="39">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <dependency id="40">    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="21"/>  
   </dependency>  
-  <dependency id="117">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <association id="118">    
-    <bendpoint x="939" y="2365"/>    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="119" name="productDB"/>      
-      <multiplicity id="120" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="121">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="122" name="products"/>      
-      <multiplicity id="123" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="124">    
-    <bendpoint x="1549" y="2859"/>    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="23"/>  
-  </dependency>  
-  <association id="125">    
-    <bendpoint x="1765" y="2365"/>    
-    <bendpoint x="1765" y="2576"/>    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="126" name="promocode"/>      
-      <multiplicity id="127" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="128">    
-    <bendpoint x="1970" y="302"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <realization id="129">    
-    <bendpoint x="1805" y="1012"/>    
-    <bendpoint x="1805" y="1349"/>    
-    <bendpoint x="1805" y="1794"/>    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="32"/>  
-  </realization>  
-  <dependency id="130">    
-    <bendpoint x="1944" y="2859"/>    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="29"/>  
-  </dependency>  
-  <association id="131">    
-    <bendpoint x="1744" y="2576"/>    
-    <end type="SOURCE" refId="28" navigable="false">      
-      <attribute id="132" name="promoCodes"/>      
-      <multiplicity id="133" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="134">    
-    <bendpoint x="763" y="1794"/>    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="31"/>  
-  </realization>  
-  <association id="135">    
-    <bendpoint x="2158" y="302"/>    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="136" name="personen"/>      
-      <multiplicity id="137" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="138">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="139" name="sale"/>      
-      <multiplicity id="140" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="141">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="142">    
-    <bendpoint x="1674" y="2859"/>    
-    <end type="SOURCE" refId="21"/>    
+  <dependency id="41">    
+    <bendpoint x="601" y="2427"/>    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="22"/>  
   </dependency>  
-  <association id="143">    
-    <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="144" name="sale"/>      
-      <multiplicity id="145" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="146">    
+  <association id="42">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="147" name="facade"/>      
-      <multiplicity id="148" minimum="0" maximum="1"/>    
+      <attribute id="43" name="facade">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="149">    
-    <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="150" name="sale"/>      
-      <multiplicity id="151" minimum="0" maximum="1"/>    
+  <association id="45">    
+    <bendpoint x="1254" y="2144"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="46" name="promoCodes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="49" name="cancelledState">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="50" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="51">    
+    <bendpoint x="1716" y="333"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <association id="52">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="53" name="sale">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="54" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="152">    
+  <association id="55">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="56" name="product">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="58">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="59">    
+    <bendpoint x="467" y="2427"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="60">    
+    <bendpoint x="1335" y="2427"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <association id="61">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="62" name="sale">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="63" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="64">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
-  <generalization id="153">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="26"/>  
-  </generalization>  
-  <association id="154">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="155" name="controller"/>      
-      <multiplicity id="156" minimum="0" maximum="1"/>    
+  <association id="65">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="66" name="controller">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="67" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="68">    
+    <bendpoint x="1756" y="580"/>    
+    <bendpoint x="1756" y="917"/>    
+    <bendpoint x="1756" y="1362"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="27"/>  
+  </realization>  
+  <association id="69">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="70" name="promoCodeDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="71" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="72">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <realization id="73">    
+    <bendpoint x="816" y="1362"/>    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <realization id="74">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <realization id="75">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <dependency id="77">    
+    <bendpoint x="898" y="2427"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <association id="78">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="79" name="productRepository">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="80" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="82" name="pendingState">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="84">    
+    <bendpoint x="729" y="1362"/>    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <generalization id="85">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <association id="86">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="87" name="controller">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="88" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="89">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="90" name="sale">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="91" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="92">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="93" name="observers">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="94" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="95">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <association id="96">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="97" name="controller">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="98" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="99">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="100">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="101" name="pcr">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="102" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <bendpoint x="1107" y="1933"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="104" name="productDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="105" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="106">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="107" name="controller">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="108" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="109">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <generalization id="110">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <dependency id="111">    
+    <bendpoint x="234" y="2427"/>    
+    <bendpoint x="234" y="2656"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <association id="112">    
+    <bendpoint x="1587" y="1933"/>    
+    <bendpoint x="1587" y="2144"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="113" name="promocode">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="114" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="115">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="116" name="sale">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="117" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="119" name="product">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="120" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="122" name="state">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="123" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="124">    
+    <bendpoint x="1608" y="1933"/>    
+    <bendpoint x="1608" y="2144"/>    
+    <bendpoint x="1608" y="2427"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="125" name="productRepo">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="126" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="128" name="type">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="129" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="130">    
+    <bendpoint x="1855" y="2656"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="131" name="producten">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="132" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="133">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="134" name="products">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="135" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="136">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="137" name="productDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="138" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="139">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

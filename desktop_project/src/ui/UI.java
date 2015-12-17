@@ -101,11 +101,8 @@ public class UI {
 		c.gridwidth = 5;
 		pane.add(confirmSale, c);
 
-		frameCashier.pack();
-		frameCashier.setLocationRelativeTo(null);
+		this.initializeFrame(frameCashier);
 		frameCashier.setResizable(false);
-		frameCashier.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frameCashier.setVisible(true);
 
 		JFrame frameCustomer = new JFrame("To pay");
 		JPanel paneCust = new JPanel();
@@ -118,10 +115,7 @@ public class UI {
 		price.setEnabled(false);
 		paneCust.add(price);
 
-		frameCustomer.pack();
-		frameCustomer.setLocationRelativeTo(null);
-		frameCustomer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frameCustomer.setVisible(true);
+		this.initializeFrame(frameCustomer);
 
 		add.addActionListener(new AddButtonActionListener(productCode, quantity, productTable, tableData, controller) {
 		});
@@ -129,11 +123,18 @@ public class UI {
 		confirmPromo.addActionListener(new ConfirmPromoCodeButtonActionListener(promoCode, controller) {
 		});
 
-		confirmSale.addActionListener(new ConfirmSaleButtonActionListener(productCode, quantity, toPay, price,
+		confirmSale.addActionListener(new ConfirmSaleButtonActionListener(productCode, quantity, price,
 				promoCode, productTable, tableData, controller) {
 		});
 
 		productTable.getModel()
 				.addTableModelListener(new ProductTableChangedListener(productTable, tableData, controller));
+	}
+	
+	public void initializeFrame(JFrame frame) {
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 }

@@ -35,7 +35,6 @@ public class Sale implements Observable {
 	private State paidState;
 	private Promocode promocode;
 
-
 	public Sale() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		this.currentSale = new HashMap<Product, Integer>();
 		try {
@@ -121,6 +120,7 @@ public class Sale implements Observable {
 	}
 	
 	public void emptyCurrentSale() {
+		this.setPrice(0);
 		this.setState(cancelledState);	
 	}
 	
