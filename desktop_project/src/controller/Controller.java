@@ -13,6 +13,10 @@ public class Controller {
 		this.facade = new Facade();
 	}
 	
+	public double getDayDiscount() {
+		return facade.getDayDiscount();
+	}
+	
 	public void addProductToSale(String id, String quantity) {
 		facade.addProductToSale(id, quantity);
 	}

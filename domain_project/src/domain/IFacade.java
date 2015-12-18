@@ -14,6 +14,8 @@ public interface IFacade {
 	
 	public Set<Product> getCurrentSale();
 	
+	public double getDayDiscount();
+	
 	public String getIDByDescription(String description);
 	
 	public String getProductDescription(Product product);

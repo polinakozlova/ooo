@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Set;
 
+import discount.domain.HappyMondayCalculator;
 import domain.product.Product;
 import domain.promocode.Promocode;
 import observer.Observer;
@@ -20,6 +21,10 @@ public class Facade implements IFacade {
 		} catch (NoSuchAlgorithmException e) {
 		} catch (UnsupportedEncodingException e) {
 		}
+	}
+	
+	public double getDayDiscount() {
+		return sale.getDayDiscount();
 	}
 	
 	public void addProductToSale(String id, String quantity) {

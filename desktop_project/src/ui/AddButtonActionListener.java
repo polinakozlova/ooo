@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import controller.Controller;
-import domain.DbException;
 
 /**
  * @author Yannick Crabbe
@@ -37,9 +36,10 @@ public class AddButtonActionListener implements ActionListener {
 				controller.addProductToSale(productCode.getText(), quantity.getText());
 				controller.updateSaleTable(tableData);
 				productTable.repaint();
-			} catch (DbException DbException) {
+			} catch (NullPointerException DbException) {
 				JOptionPane.showMessageDialog(null, "Product with ID " + productCode.getText() + " doesn't exist.",
 						"Error", JOptionPane.ERROR_MESSAGE);
+				productCode.setText("");
 			}
 		}
 	}

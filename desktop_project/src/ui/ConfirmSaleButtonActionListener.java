@@ -34,6 +34,8 @@ public class ConfirmSaleButtonActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		double salePrice = Double.parseDouble(price.getText());
+		salePrice = salePrice - controller.getDayDiscount();
+		controller.setSalePrice(salePrice);
 		double amountPaid = Double.parseDouble(JOptionPane.showInputDialog(null, "Amount paid by customer: "));
 		double change = amountPaid - salePrice;
 		if (amountPaid < Double.parseDouble(price.getText())) {

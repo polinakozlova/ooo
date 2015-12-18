@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import discount.domain.HappyMondayCalculator;
 import domain.product.Product;
 import domain.product.ProductDB;
 import domain.product.ProductRepository;
@@ -168,6 +169,11 @@ public class Sale implements Observable {
 			i++;
 		}
 		return tableData;
+	}
+	
+	public double getDayDiscount() {
+		HappyMondayCalculator calculator = new HappyMondayCalculator();
+		return calculator.getDiscountBecauseItIsASpecialDay(this.getPrice());
 	}
 
 	public void registerObserver(Observer o) {

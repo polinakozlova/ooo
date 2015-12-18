@@ -18,7 +18,6 @@ public class PromocodeProductPercentage extends Promocode {
 
 	public void setProduct(Product product) {
 		this.product = product;
-		System.out.println(product.getId());
 	}
 
 	public void setPercentage(double percentage) {

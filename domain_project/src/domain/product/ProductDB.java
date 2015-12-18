@@ -20,9 +20,9 @@ public class ProductDB {
 	public ProductDB() throws SQLException {
 		this.properties = new Properties();
 		this.url = "jdbc:postgresql://gegevensbanken.khleuven.be:51516/2TX32";
-		properties.setProperty("user", "r0459898");
+		properties.setProperty("user", "r0372415");
 		//properties.setProperty("password", System.getenv("OOOPASS"));
-		properties.setProperty("password", "Ikbenhetzobeu66");
+		properties.setProperty("password", "Nichaisubercool1");
 		properties.setProperty("ssl", "true");
 		properties.setProperty("sslfactory", "org.postgresql.ssl.NonValidatingFactory");
 	}
